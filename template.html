@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ID Template</title>
+    <link rel="stylesheet" href="template.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+    <form class="salute" action="">
+      <input type="radio" id="s1" name="salute" value="Dr.">Dr.<br>
+      <input type="radio" id="s2" name="salute" value="Mr.">Mr.<br>
+      <input type="radio" id="s3" name="salute" value="Ms.">Ms.<br>
+    </form>
+    <div class="">
+      First Name: <br><input type="text" id="firstName" name="firstName">
+    </div>
+    <div class="">
+      Last Name: <br><input type="text" id="lastName" name="lastName">
+    </div>
+    <div class="">
+      Web CV#: <br><input type="text" id="webCV" name="cv">
+    </div>
+    <form class="proStatus" action="">
+      <input type="radio" name="proStatus" value="Resident">Resident<br>
+      <input type="radio" name="proStatus" value="Fellow">Fellow<br>
+      <input type="radio" name="proStatus" value="Private Practice">Private Practie<br>
+      <input type="radio" name="proStatus" value="Military">Military<br>
+      <input type="radio" name="proStatus" value="Other">Other<br>
+    </form>
+    <div class="">
+      Specialty: <br><input type="text" id="specialty" name="specialty">
+    </div>
+    <div class="">
+      Availability Date: <br><input type="date" id="availability" name="availability">
+    </div>
+    <div class="">
+      Licenses: <br><input type="license" id="license" name="license">
+    </div>
+    <form class="boardStatus" action="index.html" method="post">
+      <input type="radio" name="board" value="Board Certified">Board Certified<br>
+      <input type="radio" name="board" value="Board Eligible">Board Eligible<br>
+      <input type="radio" name="board" value="N/A">N/A<br>
+    </form>
+    <input type="button" id="submit" value="Submit">
+    <p id="intro"></p>
+    <p id=p1></p>
+    <script type="text/javascript" src="template.js"></script>
+  </body>
+</html>
