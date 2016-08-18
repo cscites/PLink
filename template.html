@@ -6,44 +6,99 @@
     <link rel="stylesheet" href="template.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
-    <form class="salute" action="">
-      <input type="radio" id="s1" name="salute" value="Dr.">Dr.<br>
-      <input type="radio" id="s2" name="salute" value="Mr.">Mr.<br>
-      <input type="radio" id="s3" name="salute" value="Ms.">Ms.<br>
-    </form>
-    <div class="">
-      First Name: <br><input type="text" id="firstName" name="firstName">
+    <div class="container">
+      <div class="col-md-6 col-xs-12 pane">
+        <div class="col-xs-12">
+          <h4>Gender:</h4>
+        </div>
+        <form class="gender" action="index.html" method="post">
+          <div class="col-md-6 col-xs-12">
+            <input type="radio" name="gender" value="Male">Male
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <input type="radio" name="gender" value="Female">Female
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6 col-xs-12 pane">
+        <div class="col-xs-12">
+          <h4>Title:</h4>
+        </div>
+        <form class="salute" action="">
+          <div class="col-md-4 col-xs-12">
+            <input type="radio" id="s1" name="salute" value="Dr.">Dr.
+          </div>
+          <div class="col-md-4 col-xs-12">
+            <input type="radio" id="s2" name="salute" value="Mr.">Mr.
+          </div>
+          <div class="col-md-4 col-xs-12">
+            <input type="radio" id="s3" name="salute" value="Ms.">Ms.
+          </div>
+        </form>
+      </div>
+      <div class="col-xs-12 pane">
+        <div class="col-md-2 col-xs-12">
+          First Name:
+        </div>
+        <div class="col-md-2 col-xs-12">
+          <input type="text" id="firstName" name="firstName">
+        </div>
+        <div class="col-md-2 col-xs-12">
+          Last Name:
+        </div>
+        <div class="col-md-2 col-xs-12">
+          <input type="text" id="lastName" name="lastName">        </div>
+        <div class="col-md-2 col-xs-12">
+          Web CV#:
+        </div>
+        <div class="col-md-2 col-xs-12">
+          <input type="text" id="webCV" name="cv">
+        </div>
+      </div>
+      <div class="col-md-6 col-xs-12 pane">
+        <div class="col-md-12">
+          <h4>Professional Status:</h4>
+        </div>
+        <form class="proStatus" action="">
+          <div class="col-md-6 col-xs-12">
+            <input type="radio" name="proStatus" value="Resident">Resident
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <input type="radio" name="proStatus" value="Fellow">Fellow
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <input type="radio" name="proStatus" value="Private Practice">Private Practice
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <input type="radio" name="proStatus" value="Military">Military
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <input type="radio" name="proStatus" value="Other">Other
+          </div>
+        </form>
+      </div>
+
+
+      <div class="">
+        Specialty: <br><input type="text" id="specialty" name="specialty">
+      </div>
+      <div class="">
+        Availability Date: <br><input type="date" id="availability" name="availability">
+      </div>
+      <div class="">
+        Licenses: <br><input type="license" id="license" name="license">
+      </div>
+      <form class="boardStatus" action="index.html" method="post">
+        <input type="radio" name="board" value="Board Certified">Board Certified<br>
+        <input type="radio" name="board" value="Board Eligible">Board Eligible<br>
+        <input type="radio" name="board" value="N/A">N/A<br>
+      </form>
+      <input type="button" id="submit" value="Submit">
+      <p id="intro"></p>
+      <p id=p1></p>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+      <script type="text/javascript" src="template.js"></script>
     </div>
-    <div class="">
-      Last Name: <br><input type="text" id="lastName" name="lastName">
-    </div>
-    <div class="">
-      Web CV#: <br><input type="text" id="webCV" name="cv">
-    </div>
-    <form class="proStatus" action="">
-      <input type="radio" name="proStatus" value="Resident">Resident<br>
-      <input type="radio" name="proStatus" value="Fellow">Fellow<br>
-      <input type="radio" name="proStatus" value="Private Practice">Private Practie<br>
-      <input type="radio" name="proStatus" value="Military">Military<br>
-      <input type="radio" name="proStatus" value="Other">Other<br>
-    </form>
-    <div class="">
-      Specialty: <br><input type="text" id="specialty" name="specialty">
-    </div>
-    <div class="">
-      Availability Date: <br><input type="date" id="availability" name="availability">
-    </div>
-    <div class="">
-      Licenses: <br><input type="license" id="license" name="license">
-    </div>
-    <form class="boardStatus" action="index.html" method="post">
-      <input type="radio" name="board" value="Board Certified">Board Certified<br>
-      <input type="radio" name="board" value="Board Eligible">Board Eligible<br>
-      <input type="radio" name="board" value="N/A">N/A<br>
-    </form>
-    <input type="button" id="submit" value="Submit">
-    <p id="intro"></p>
-    <p id=p1></p>
-    <script type="text/javascript" src="template.js"></script>
-  </body>
+    </body>
 </html>
