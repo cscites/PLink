@@ -7,55 +7,55 @@
   </head>
   <body>
     <div class="container">
-      <div class="col-md-6 col-xs-12 pane">
-        <div class="col-xs-12">
-          <h4>Gender:</h4>
-        </div>
-        <form class="gender" action="index.html" method="post">
-          <div class="col-md-6 col-xs-12">
-            <input type="radio" name="gender" value="Male">Male
-          </div>
-          <div class="col-md-6 col-xs-12">
-            <input type="radio" name="gender" value="Female">Female
-          </div>
-        </form>
-      </div>
-      <div class="col-md-6 col-xs-12 pane">
+      <div class="col-md-3 col-xs-12 pane">
         <div class="col-xs-12">
           <h4>Title:</h4>
         </div>
         <form class="salute" action="">
-          <div class="col-md-4 col-xs-12">
+          <div class="col-md-12">
             <input type="radio" id="s1" name="salute" value="Dr.">Dr.
           </div>
-          <div class="col-md-4 col-xs-12">
+          <div class="col-md-12">
             <input type="radio" id="s2" name="salute" value="Mr.">Mr.
           </div>
-          <div class="col-md-4 col-xs-12">
+          <div class="col-md-12">
             <input type="radio" id="s3" name="salute" value="Ms.">Ms.
           </div>
         </form>
       </div>
-      <div class="col-xs-12 pane">
-        <div class="col-md-2 col-xs-12">
+      <div class="col-md-3 col-xs-12 pane">
+        <div class="col-xs-12">
           First Name:
         </div>
-        <div class="col-md-2 col-xs-12">
+        <div class="col-md-12">
           <input type="text" id="firstName" name="firstName">
         </div>
-        <div class="col-md-2 col-xs-12">
+        <div class="col-md-12">
           Last Name:
         </div>
-        <div class="col-md-2 col-xs-12">
+        <div class="col-md-12">
           <input type="text" id="lastName" name="lastName">        </div>
-        <div class="col-md-2 col-xs-12">
+        <div class="col-md-12">
           Web CV#:
         </div>
-        <div class="col-md-2 col-xs-12">
+        <div class="col-md-12">
           <input type="text" id="webCV" name="cv">
         </div>
       </div>
-      <div class="col-md-6 col-xs-12 pane">
+      <div class="col-md-3 col-xs-12 pane">
+        <div class="col-xs-12">
+          <h4>Gender:</h4>
+        </div>
+        <form class="gender" action="index.html" method="post">
+          <div class="col-md-12">
+            <input type="radio" name="gender" value="Male">Male
+          </div>
+          <div class="col-md-12">
+            <input type="radio" name="gender" value="Female">Female
+          </div>
+        </form>
+      </div>
+      <div class="col-md-3 col-xs-12 pane">
         <div class="col-md-12">
           <h4>Professional Status:</h4>
         </div>
@@ -77,22 +77,106 @@
           </div>
         </form>
       </div>
+      <div class="col-md-3 col-xs-12 pane">
+        <div class="col-md-12">
+          <h4>Board Status:</h4>
+        </div>
+        <div class="col-md-12">
+          <form class="boardStatus" action="index.html" method="post">
+            <input type="radio" name="board" value="Board Certified">Board Certified<br>
+            <input type="radio" name="board" value="Board Eligible">Board Eligible<br>
+            <input type="radio" name="board" value="N/A">N/A<br>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-3 col-xs-12 pane">
+          <div class="col-md-12">
+            Specialty:
+          </div>
+          <div class="col-md-12">
+            <input type="text" id="specialty" name="specialty">
+          </div>
+          <div class="col-md-12">
+            Availability Month:
+          </div>
+          <div class="col-md-12">
+            <input type="text" id="availabilityMonth" name="availability">
+          </div>
+          <div class="col-md-12">
+            Availability Year:
+          </div>
+          <div class="col-md-12">
+            <input type="text" id="availabilityYear" name="availability">
+          </div>
+      </div>
+      <div class="col-md-6 col-xs-12">
+        <div class="col-md-12">
+          <h4>Licenses:</h4>
+        </div>
+        <form class="licenses" action="index.html" method="post">
+          <div class="col-md-3 col-xs-12">
+            <input type="checkbox" name="stateLic" value="AL">AL<br>
+            <input type="checkbox" name="stateLic" value="AK">AK<br>
+            <input type="checkbox" name="stateLic" value="AZ">AZ<br>
+            <input type="checkbox" name="stateLic" value="AR">AR<br>
+            <input type="checkbox" name="stateLic" value="CA">CA<br>
+            <input type="checkbox" name="stateLic" value="CO">CO<br>
+            <input type="checkbox" name="stateLic" value="CT">CT<br>
+            <input type="checkbox" name="stateLic" value="DC">DC<br>
+            <input type="checkbox" name="stateLic" value="DE">DE<br>
+            <input type="checkbox" name="stateLic" value="FL">FL<br>
+            <input type="checkbox" name="stateLic" value="GA">GA<br>
+            <input type="checkbox" name="stateLic" value="HI">HI<br>
+            <input type="checkbox" name="stateLic" value="ID">ID<br>
+            <input type="checkbox" name="stateLic" value="IL">IL<br>
+          </div>
+          <div class="col-md-3 col-xs-12">
+            <input type="checkbox" name="stateLic" value="IN">IN<br>
+            <input type="checkbox" name="stateLic" value="IA">IA<br>
+            <input type="checkbox" name="stateLic" value="KS">KS<br>
+            <input type="checkbox" name="stateLic" value="KY">KY<br>
+            <input type="checkbox" name="stateLic" value="LA">LA<br>
+            <input type="checkbox" name="stateLic" value="ME">ME<br>
+            <input type="checkbox" name="stateLic" value="MD">MD<br>
+            <input type="checkbox" name="stateLic" value="MA">MA<br>
+            <input type="checkbox" name="stateLic" value="MI">MI<br>
+            <input type="checkbox" name="stateLic" value="MN">MN<br>
+            <input type="checkbox" name="stateLic" value="MS">MS<br>
+            <input type="checkbox" name="stateLic" value="MO">MO<br>
+            <input type="checkbox" name="stateLic" value="MT">MT<br>
+            <input type="checkbox" name="stateLic" value="NE">NE<br>
+          </div>
+          <div class="col-md-3 col-xs-12">
+            <input type="checkbox" name="stateLic" value="NV">NV<br>
+            <input type="checkbox" name="stateLic" value="NH">NH<br>
+            <input type="checkbox" name="stateLic" value="NJ">NJ<br>
+            <input type="checkbox" name="stateLic" value="NM">NM<br>
+            <input type="checkbox" name="stateLic" value="NY">NY<br>
+            <input type="checkbox" name="stateLic" value="NC">NC<br>
+            <input type="checkbox" name="stateLic" value="ND">ND<br>
+            <input type="checkbox" name="stateLic" value="OH">OH<br>
+            <input type="checkbox" name="stateLic" value="OK">OK<br>
+            <input type="checkbox" name="stateLic" value="OR">OR<br>
+            <input type="checkbox" name="stateLic" value="PA">PA<br>
+            <input type="checkbox" name="stateLic" value="PR">PR<br>
+            <input type="checkbox" name="stateLic" value="RI">RI<br>
+            <input type="checkbox" name="stateLic" value="SC">SC<br>
+          </div>
+          <div class="col-md-3 col-xs-12">
+            <input type="checkbox" name="stateLic" value="SD">SD<br>
+            <input type="checkbox" name="stateLic" value="TN">TN<br>
+            <input type="checkbox" name="stateLic" value="TX">TX<br>
+            <input type="checkbox" name="stateLic" value="UT">UT<br>
+            <input type="checkbox" name="stateLic" value="VT">VT<br>
+            <input type="checkbox" name="stateLic" value="VA">VA<br>
+            <input type="checkbox" name="stateLic" value="WA">WA<br>
+            <input type="checkbox" name="stateLic" value="WV">WV<br>
+            <input type="checkbox" name="stateLic" value="WI">WI<br>
+            <input type="checkbox" name="stateLic" value="WY">WY<br>
+          </div>
+        </form>
+      </div>
 
-
-      <div class="">
-        Specialty: <br><input type="text" id="specialty" name="specialty">
-      </div>
-      <div class="">
-        Availability Date: <br><input type="date" id="availability" name="availability">
-      </div>
-      <div class="">
-        Licenses: <br><input type="license" id="license" name="license">
-      </div>
-      <form class="boardStatus" action="index.html" method="post">
-        <input type="radio" name="board" value="Board Certified">Board Certified<br>
-        <input type="radio" name="board" value="Board Eligible">Board Eligible<br>
-        <input type="radio" name="board" value="N/A">N/A<br>
-      </form>
       <input type="button" id="submit" value="Submit">
       <p id="intro"></p>
       <p id=p1></p>
