@@ -55,15 +55,15 @@
         <div class="col-xs-12">
           <h4>Profession:</h4>
         </div>
-        <form class="salute" action="">
+        <form class="profession" action="">
           <div class="col-md-12">
-            <input type="radio" id="s1" name="salute" value="Physician">Physician
+            <input type="radio" id="s1" name="profession" value="Physician">Physician
           </div>
           <div class="col-md-12">
-            <input type="radio" id="s2" name="salute" value="NP">NP
+            <input type="radio" id="s2" name="profession" value="NP">NP
           </div>
           <div class="col-md-12">
-            <input type="radio" id="s3" name="salute" value="PA">PA
+            <input type="radio" id="s3" name="profession" value="PA">PA
           </div>
         </form>
       </div>
@@ -243,7 +243,7 @@
         <h4>Preferred Group Size:</h4>
       </div>
       <div class="col-md-12">
-        <input type="text" name="groupSize" value="">
+        <input type="text" name="groupSize" id = "prefGroupSize" value="">
       </div>
     </div>
     <!--Areas of Pro Interest-->
@@ -252,7 +252,7 @@
         <h4>Areas of Professional Interest/Procedures:</h4>
       </div>
       <div class="col-md-12" id="proIntInput">
-        <textarea name="proInterest" rows="8" cols="90%"></textarea>
+        <textarea name="proInterest" id = "profIntInput" rows="8" cols="90%"></textarea>
       </div>
     </div>
     <!--hours-->
@@ -536,7 +536,7 @@
       </div>
     </div>
     <hr class="col-md-12 divider">
-    <div class="col-md-12 col-md-offset-1">
+    <div class="col-md-12 col-md-ofprofession">
       <div class="col-md-6 col-xs-12">
         <input type="button" id="submit" value="Submit">
       </div>
