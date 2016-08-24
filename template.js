@@ -36,6 +36,40 @@ var hours = document.getElementsByName("hoursType");
 var canHours;
 var advPracs = document.getElementsByName("advPracs");
 var canAdvPracs;
+var emrs = document.getElementById("knownEMRs");
+var canEMRs;
+var benefits = document.getElementsByName("benefits");
+var canBenefits;
+var languages = document.getElementById("spokenLanguages");
+var canLanguages;
+var prefStates = document.getElementsByName("prefStates");
+var canPrefStates;
+var sigOther = document.getElementsByName("sigOthers");
+var canSigOther;
+var sigOtherName = document.getElementById("sigOtherName")
+var canSigOtherName;
+var sigOtherCareer = document.getElementById("sigOtherCareer")
+var canSigOtherCareer;
+var children = document.getElementsByName("children");
+var canChildren;
+var childrenNames = document.getElementById("childrenNames");
+var canChildrenNames;
+var childrenActivities = document.getElementById("childrenActivities");
+var canChildrenActivities;
+var leisureActivities = document.getElementById("leisureActivities");
+var canLeisureActivities;
+var begunInterviewing = document.getElementsByName("interviewing");
+var canInterviewing;
+var noticeTillInterview = document.getElementById("noticeToInterview");
+var canNoticeTillInterview;
+var virtInterview = document.getElementsByName("virtualInterview");
+var canVirtInterview;
+var virtInterviewMethod = document.getElementById("virtualInterviewMethod");
+var canVirtInterviewMethod;
+var prefMethOfContact = document.getElementsByName("prefMethOfContact");
+var canPrefMethOfContact;
+var cvUpToDate = document.getElementsByName("cvUpToDate");
+var canCVUpToDate;
 
 var submitButton = document.getElementById("submit");
 var intro = document.getElementById("intro")
@@ -75,9 +109,7 @@ specialty.addEventListener("input",function () {
 availability.addEventListener("input",function () {
   canAvailability = availability.value;
 })
-license.addEventListener("input",function () {
-  canLicense = license.value;
-})
+
 
 submitButton.addEventListener("click", function(){
   candidateSalute();
