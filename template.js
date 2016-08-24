@@ -22,6 +22,8 @@ var trainingCompletionMonth = document.getElementById("completionMonth");
 var canTrainingCompletionMonth;
 var trainingCompletionYear = document.getElementById("completionYear");
 var canTrainingCompletionYear;
+var visa = document.getElementsByName("visa");
+var canVisa;
 var licenses = document.getElementsByName("stateLic");
 var canLicenses;
 var prefPracType = document.getElementsByName("practiceType");
@@ -74,15 +76,35 @@ var canCVUpToDate;
 var submitButton = document.getElementById("submit");
 var intro = document.getElementById("intro")
 var par1 = document.getElementById("p1");
-
-
-function candidateSalute() {
-  for(var i = 0; i < salute.length; i++){
-    if(salute[i].checked){
-      canSalute = salute[i].value;
+//Determines canGender
+function candidateGender(){
+  for(var i = 0; i < gender.length; i++){
+    if(gender[i].checked){
+      canGender = gender[i].value;
     }
   }
 }
+//Determines canSalute, must be run after candidateGender()
+function candidateSalute() {
+  if(profession.value = "Physician"){
+    canSalute ="Dr. ";
+  }
+  else if (canGender = "Male") {
+    canSalute = "Mr. ";
+  }
+  else{
+    canSalute = "Ms. ";
+  }
+}
+//Determines canProfession (Physician, NP, PA)
+function candidateProfession(){
+  for(var i = 0; i < profession.length; i++){
+    if(profession[i].checked){
+      canProfession = profession[i].value + " ";
+    }
+  }
+}
+//Determines canProStatus
 function candidateProStatus() {
   for(var i = 0; i < proStatus.length; i++){
     if(proStatus[i].checked){
@@ -90,13 +112,63 @@ function candidateProStatus() {
     }
   }
 }
+//Determines canBoard
 function candidateBoard() {
   for(var i = 0; i < board.length; i++){
     if(board[i].checked){
-      canBoard = board[i].value;
+      canBoard = board[i].value + " ";
     }
   }
 }
+//Determines canVisa
+function candidateVisa() {
+  for(var i = 0; i < visa.length; i++){
+    if(visa[i].checked){
+      canVisa = visa[i].value + " ";
+    }
+  }
+}
+//Determines canLicenses
+function candidateLicenses() {
+  for(var i = 0; i < licenses.length; i++){
+    if(licenses[i].checked){
+      canLicenses = canLicenses.push(licenses[i].value);
+    }
+  }
+}
+//Determines canPrefPracType
+function candidatePrefPracType() {
+  for(var i = 0; i < prefPracType.length; i++){
+    if(prefPracType[i].checked){
+      canPrefPracType = canPrefPracType.push(prefPracType[i].value);
+    }
+  }
+}
+//Determines canPrefGroupType
+function candidatePrefGroupType() {
+  for(var i = 0; i < prefGroupType.length; i++){
+    if(prefGroupType[i].checked){
+      canPrefGroupType = canPrefGroupType.push(prefGroupType[i].value);
+    }
+  }
+}
+//Determines canHours
+function candidateHours() {
+  for(var i = 0; i < hours.length; i++){
+    if(hours[i].checked){
+      canHours = canHours.push(hours[i].value);
+    }
+  }
+}
+//Determines canAdvPracs
+function candidateAdvPracs() {
+  for(var i = 0; i < advPracs.length; i++){
+    if(advPracs[i].checked){
+      canAdvPracs = advPracs[i].value;
+    }
+  }
+}
+
 firstName.addEventListener("input",function () {
   canFirstName = firstName.value;
 })

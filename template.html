@@ -60,10 +60,10 @@
             <input type="radio" id="s1" name="profession" value="Physician">Physician
           </div>
           <div class="col-md-12">
-            <input type="radio" id="s2" name="profession" value="NP">NP
+            <input type="radio" id="s2" name="profession" value="Nurse Practitioner">NP
           </div>
           <div class="col-md-12">
-            <input type="radio" id="s3" name="profession" value="PA">PA
+            <input type="radio" id="s3" name="profession" value="Physician Assistant">PA
           </div>
         </form>
       </div>
@@ -137,6 +137,21 @@
         </div>
         <div class="col-md-12">
           <input type="text" id="completionYear" name="completion">
+        </div>
+      </div>
+      <div class="col-md-3 col-xs-12 pane">
+        <div class="col-md-12">
+          <h4>Visa Status:</h4>
+        </div>
+        <div class="col-md-12">
+          <form class="boardStatus" action="index.html" method="post">
+            <input type="radio" name="visa" value="US Citizen">US Citizen<br>
+            <input type="radio" name="visa" value="Permanent US Visa">Permanent US Visa<br>
+            <input type="radio" name="visa" value="J1 Visa">J1<br>
+            <input type="radio" name="visa" value="H1b Visa">H1b<br>
+            <input type="radio" name="visa" value="O1 Visa">O1<br>
+
+          </form>
         </div>
       </div>
       <!--licenses-->
@@ -232,8 +247,8 @@
         </div>
         <div class="col-md-12">
           <form class="practiceType" action="index.html" method="post">
-            <input type="checkbox" name="groupType" value="ssg">Single Specialty Group<br>
-            <input type="checkbox" name="groupType" value="msg">Multi-Specialty Group<br>
+            <input type="checkbox" name="groupType" value="Single Specialty Group">Single Specialty Group<br>
+            <input type="checkbox" name="groupType" value="Multi-Specialty Group">Multi-Specialty Group<br>
           </form>
         </div>
       </div>
