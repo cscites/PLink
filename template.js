@@ -46,6 +46,8 @@ var languages = document.getElementById("spokenLanguages");
 var canLanguages;
 var prefStates = document.getElementsByName("prefStates");
 var canPrefStates;
+var geoInt = document.getElementById("geoInt");
+var canGeoInt;
 var sigOther = document.getElementsByName("sigOthers");
 var canSigOther;
 var sigOtherName = document.getElementById("sigOtherName")
@@ -168,6 +170,62 @@ function candidateAdvPracs() {
     }
   }
 }
+function candidateBenefits() {
+  for(var i = 0; i < benefits.length; i++){
+    if(benefits[i].checked){
+      canBenefits = canBenefits.push(benefits[i].value);
+    }
+  }
+}
+function candidatePrefStates() {
+  for(var i = 0; i < prefStates.length; i++){
+    if(prefStates[i].checked){
+      canPrefStates = canPrefStates.push(prefStates[i].value);
+    }
+  }
+}
+function candidateSigOthers() {
+  for(var i = 0; i < sigOther.length; i++){
+    if(sigOther[i].checked){
+      canSigOther = sigOther[i].value;
+    }
+  }
+}
+function candidateChildren() {
+  for(var i = 0; i < children.length; i++){
+    if(children[i].checked){
+      canChildren = children[i].value;
+    }
+  }
+}
+function candidateInterviewing() {
+  for(var i = 0; i < interviewing.length; i++){
+    if(interviewing[i].checked){
+      canInterviewing = interviewing[i].value;
+    }
+  }
+}
+function candidateVirtualInterview() {
+  for(var i = 0; i < virtualInterview.length; i++){
+    if(virtualInterview[i].checked){
+      canVirtInterview = virtualInterview[i].value;
+    }
+  }
+}
+function candidateMethOfContact() {
+  for(var i = 0; i < prefMethOfContact.length; i++){
+    if(prefMethOfContact[i].checked){
+      canPrefMethOfContact = canPrefMethOfContact.push(prefMethOfContact[i].value);
+    }
+  }
+}
+function candidateCvUpToDate() {
+  for(var i = 0; i < cvUpToDate.length; i++){
+    if(cvUpToDate[i].checked){
+      canCVUpToDate = cvUpToDate[i].value;
+    }
+  }
+}
 
 firstName.addEventListener("input",function () {
   canFirstName = firstName.value;
@@ -178,10 +236,33 @@ lastName.addEventListener("input",function () {
 specialty.addEventListener("input",function () {
   canSpecialty = specialty.value;
 })
-availability.addEventListener("input",function () {
-  canAvailability = availability.value;
+availabilityMonth.addEventListener("input",function () {
+  canAvailabilityMonth = availabilityMonth.value;
 })
-
+availabilityYear.addEventListener("input",function () {
+  canAvailabilityYear = availabilityYear.value;
+})
+trainingCompletionMonth.addEventListener("input",function () {
+  canTrainingCompletionMonth = trainingCompletionMonth.value;
+})
+trainingCompletionYear.addEventListener("input",function () {
+  canTrainingCompletionYear = trainingCompletionYear.value;
+})
+prefGroupSize.addEventListener("input",function () {
+  canPrefGroupSize = prefGroupSize.value;
+})
+proInts.addEventListener("input",function () {
+  canProInts = proInts.value;
+})
+emrs.addEventListener("input",function () {
+  canEMRs = emrs.value;
+})
+languages.addEventListener("input",function () {
+  canLanguages = languages.value;
+})
+geoInt.addEventListener("input",function () {
+  canGeoInt = geoInt.value;
+})
 
 submitButton.addEventListener("click", function(){
   candidateSalute();
