@@ -36,7 +36,7 @@ var proInts = document.getElementById("profIntInput");
 var canProInts;
 var hours = document.getElementsByName("hoursType");
 var canHours = [];
-var advPracs = document.getElementsByName("advPracs");
+var advPracs = document.getElementsByName("advPrac");
 var canAdvPracs;
 var emrs = document.getElementById("knownEMRs");
 var canEMRs;
@@ -74,6 +74,7 @@ var prefMethOfContact = document.getElementsByName("prefMethOfContact");
 var canPrefMethOfContact = [];
 var cvUpToDate = document.getElementsByName("cvUpToDate");
 var canCVUpToDate;
+var canPronouns;
 
 var submitButton = document.getElementById("submit");
 var intro = document.getElementById("intro")
@@ -283,6 +284,7 @@ noticeTillInterview.addEventListener("input",function () {
 })
 
 submitButton.addEventListener("click", function(){
+  console.log("run submit functions")
   candidateGender();
   candidateSalute();
   candidateProfession();
@@ -302,6 +304,13 @@ submitButton.addEventListener("click", function(){
   candidateVirtualInterview();
   candidateMethOfContact();
   candidateCvUpToDate();
+  if(canGender = "Female"){
+    canPronouns = ["She","she","Her","her"];
+  }
+  else{
+    canPronouns = ["He","he","His","his"];
+  }
+
   intro.textContent = "Initial contact with "+canSalute +" "+canFirstName+" "+canLastName+":";
   p1.textContent = canSalute+canLastName;
 })
