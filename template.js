@@ -25,27 +25,27 @@ var canTrainingCompletionYear;
 var visa = document.getElementsByName("visa");
 var canVisa;
 var licenses = document.getElementsByName("stateLic");
-var canLicenses;
+var canLicenses = [];
 var prefPracType = document.getElementsByName("practiceType");
-var canPrefPracType;
+var canPrefPracType = [];
 var prefGroupType = document.getElementsByName("groupType");
-var canPrefGroupType;
+var canPrefGroupType = [];
 var prefGroupSize = document.getElementById("prefGroupSize");
 var canPrefGroupSize;
 var proInts = document.getElementById("profIntInput");
 var canProInts;
 var hours = document.getElementsByName("hoursType");
-var canHours;
+var canHours = [];
 var advPracs = document.getElementsByName("advPracs");
 var canAdvPracs;
 var emrs = document.getElementById("knownEMRs");
 var canEMRs;
 var benefits = document.getElementsByName("benefits");
-var canBenefits;
+var canBenefits = [];
 var languages = document.getElementById("spokenLanguages");
 var canLanguages;
 var prefStates = document.getElementsByName("prefStates");
-var canPrefStates;
+var canPrefStates = [];
 var geoInt = document.getElementById("geoInt");
 var canGeoInt;
 var sigOther = document.getElementsByName("sigOthers");
@@ -71,7 +71,7 @@ var canVirtInterview;
 var virtInterviewMethod = document.getElementById("virtualInterviewMethod");
 var canVirtInterviewMethod;
 var prefMethOfContact = document.getElementsByName("prefMethOfContact");
-var canPrefMethOfContact;
+var canPrefMethOfContact = [];
 var cvUpToDate = document.getElementsByName("cvUpToDate");
 var canCVUpToDate;
 
@@ -116,9 +116,9 @@ function candidateProStatus() {
 }
 //Determines canBoard
 function candidateBoard() {
-  for(var i = 0; i < board.length; i++){
-    if(board[i].checked){
-      canBoard = board[i].value + " ";
+  for(var i = 0; i < boardStatus.length; i++){
+    if(boardStatus[i].checked){
+      canBoardStatus = boardStatus[i].value + " ";
     }
   }
 }
@@ -134,7 +134,7 @@ function candidateVisa() {
 function candidateLicenses() {
   for(var i = 0; i < licenses.length; i++){
     if(licenses[i].checked){
-      canLicenses = canLicenses.push(licenses[i].value);
+      canLicenses.push(licenses[i].value);
     }
   }
 }
@@ -142,7 +142,7 @@ function candidateLicenses() {
 function candidatePrefPracType() {
   for(var i = 0; i < prefPracType.length; i++){
     if(prefPracType[i].checked){
-      canPrefPracType = canPrefPracType.push(prefPracType[i].value);
+      canPrefPracType.push(prefPracType[i].value);
     }
   }
 }
@@ -158,7 +158,7 @@ function candidatePrefGroupType() {
 function candidateHours() {
   for(var i = 0; i < hours.length; i++){
     if(hours[i].checked){
-      canHours = canHours.push(hours[i].value);
+      canHours.push(hours[i].value);
     }
   }
 }
@@ -173,14 +173,14 @@ function candidateAdvPracs() {
 function candidateBenefits() {
   for(var i = 0; i < benefits.length; i++){
     if(benefits[i].checked){
-      canBenefits = canBenefits.push(benefits[i].value);
+      canBenefits.push(benefits[i].value);
     }
   }
 }
 function candidatePrefStates() {
   for(var i = 0; i < prefStates.length; i++){
     if(prefStates[i].checked){
-      canPrefStates = canPrefStates.push(prefStates[i].value);
+      canPrefStates.push(prefStates[i].value);
     }
   }
 }
@@ -215,7 +215,7 @@ function candidateVirtualInterview() {
 function candidateMethOfContact() {
   for(var i = 0; i < prefMethOfContact.length; i++){
     if(prefMethOfContact[i].checked){
-      canPrefMethOfContact = canPrefMethOfContact.push(prefMethOfContact[i].value);
+      canPrefMethOfContact.push(prefMethOfContact[i].value);
     }
   }
 }
