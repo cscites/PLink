@@ -263,11 +263,45 @@ languages.addEventListener("input",function () {
 geoInt.addEventListener("input",function () {
   canGeoInt = geoInt.value;
 })
+sigOtherName.addEventListener("input",function () {
+  canSigOtherName = sigOtherName.value;
+})
+sigOtherCareer.addEventListener("input",function () {
+  canSigOtherCareer = sigOtherCareer.value;
+})
+childrenNames.addEventListener("input",function () {
+  canChildrenNames = childrenNames.value;
+})
+childrenActivities.addEventListener("input",function () {
+  canChildrenActivities = childrenActivities.value;
+})
+leisureActivities.addEventListener("input",function () {
+  canLeisureActivities = leisureActivities.value;
+})
+noticeTillInterview.addEventListener("input",function () {
+  canNoticeTillInterview = noticeTillInterview.value;
+})
 
 submitButton.addEventListener("click", function(){
+  candidateGender();
   candidateSalute();
+  candidateProfession();
   candidateProStatus();
   candidateBoard();
+  candidateVisa();
+  candidateLicenses();
+  candidatePrefPracType();
+  candidatePrefGroupType();
+  candidateHours();
+  candidateAdvPracs();
+  candidateBenefits();
+  candidatePrefStates();
+  candidateSigOthers();
+  candidateChildren();
+  candidateInterviewing();
+  candidateVirtualInterview();
+  candidateMethOfContact();
+  candidateCvUpToDate();
   intro.textContent = "Initial contact with "+canSalute +" "+canFirstName+" "+canLastName+":";
   p1.textContent = canSalute+canLastName;
 })
