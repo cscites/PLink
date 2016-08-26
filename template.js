@@ -86,20 +86,22 @@ function candidateGender(){
       canGender = gender[i].value;
     }
   }
-}
-//Determines canSalute, must be run after candidateGender()
-function candidateSalute() {
-  if(profession.value = "Physician"){
+  if(canGender == "Male"){
+    canPronouns = ["He","he","His","his"];
+  }
+  else{
+    canPronouns = ["She","she","Her","her"];
+  }
+  if(canProfession == "Physician "){
     canSalute ="Dr. ";
   }
-  else if (canGender = "Male") {
+  else if (canGender == "Male") {
     canSalute = "Mr. ";
   }
   else{
     canSalute = "Ms. ";
   }
 }
-//Determines canProfession (Physician, NP, PA)
 function candidateProfession(){
   for(var i = 0; i < profession.length; i++){
     if(profession[i].checked){
@@ -228,6 +230,7 @@ function candidateCvUpToDate() {
   }
 }
 
+
 firstName.addEventListener("input",function () {
   canFirstName = firstName.value;
 })
@@ -285,9 +288,9 @@ noticeTillInterview.addEventListener("input",function () {
 
 submitButton.addEventListener("click", function(){
   console.log("run submit functions")
-  candidateGender();
-  candidateSalute();
   candidateProfession();
+  candidateGender();
+  //candidateSalute();
   candidateProStatus();
   candidateBoard();
   candidateVisa();
@@ -304,12 +307,7 @@ submitButton.addEventListener("click", function(){
   candidateVirtualInterview();
   candidateMethOfContact();
   candidateCvUpToDate();
-  if(canGender = "Female"){
-    canPronouns = ["She","she","Her","her"];
-  }
-  else{
-    canPronouns = ["He","he","His","his"];
-  }
+
 
   intro.textContent = "Initial contact with "+canSalute +" "+canFirstName+" "+canLastName+":";
   p1.textContent = canSalute+canLastName;
