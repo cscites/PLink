@@ -281,9 +281,38 @@ noticeTillInterview.addEventListener("input",function () {
   canNoticeTillInterview = noticeTillInterview.value;
 })
 
+//forms string from array
+function arrayToString(array){
+  var result;
+  if(array.length == 1){
+    result = array[0];
+  }
+  else{
+    for(var i = 0; i < array.length; i++){
+      if(i == array.length - 1){
+        result = result + " or " + array[i];
+      }
+      else{
+        if(i == 0){
+          result = array[i];
+        }
+        else{
+          result = result + ", " + array[i];
+        }
+      }
+    }
+  }
+  return result;
+}
+
 submitButton.addEventListener("click", function(){
   console.log("run submit functions")
   candidateSubmit();
+  var canHoursString = arrayToString(canHours);
+  var canPrefGroupTypeString = arrayToString(canPrefGroupType);
+  var canBenefitsString = arrayToString(canBenefits);
+
+
   var introString = "Initial contact with " + canSalute + canFirstName + " " + canLastName + ":";
 
   var canFormalName = canSalute + canLastName + " ";
@@ -296,7 +325,7 @@ submitButton.addEventListener("click", function(){
   if(canProStatus == "Resident"){
     canProStatusDescrip = ["Resident","Residency"];
     p1a = canFormalName + "will complete " + canPronouns[3] + " " + canSpecialty  + " " + canProStatusDescrip[2] + " in " + canTrainingCompletionMonth + " of " + canTrainingCompletionYear + ". ";
-
+    p1c = 
   }
   else if (canProStatus == "Fellow") {
     canProStatusDescrip = ["Fellow","Fellowship"];
@@ -314,29 +343,29 @@ submitButton.addEventListener("click", function(){
   }
   else if (canProStatus == "Private Practice") {
     canProStatusDescrip = ["Private Practice","Practicing"];
-    p1a = canFormalName + "is a " + canProStatusDescrip[1] + " " + canProfession + " interested in " + canHours + " " + canSpecialty + " opportunities, beginning " + canAvailabilityMonth + ", " + canAvailabilityYear + ". ";
+    p1a = canFormalName + "is a " + canProStatusDescrip[1] + " " + canProfession + " interested in " + canHoursString + " " + canSpecialty + " opportunities, beginning " + canAvailabilityMonth + ", " + canAvailabilityYear + ". ";
   }
   else if (canProStatus == "Retired") {
     canProStatusDescrip = ["Retired","Retirement"];
-    p1a = canFormalName + "is a " + canProStatusDescrip[0] + " " + canProfession + " interested in " + canHours + " " + canSpecialty + " opportunities, beginning " + canAvailabilityMonth + ", " + canAvailabilityYear + ". ";
+    p1a = canFormalName + "is a " + canProStatusDescrip[0] + " " + canProfession + " interested in " + canHoursString + " " + canSpecialty + " opportunities, beginning " + canAvailabilityMonth + ", " + canAvailabilityYear + ". ";
   }
 
   if(canProStatus == "Resident" || "Fellow" || "Military"|| "Graduate School"){
     if(canVisa == "US Citizen"){
-      p1b = canPronouns[0] + " is interested in " + canHours + " " + canSpecialty + " opportunities, beginning as early as " + canAvailabilityMonth + ", " + canAvailabilityYear + ". ";
+      p1b = canPronouns[0] + " is interested in " + canHoursString + " " + canSpecialty + " opportunities, beginning as early as " + canAvailabilityMonth + ", " + canAvailabilityYear + ". ";
     }
     else if (canVisa == "J1 Visa") {
-      p1b = canPronouns[0] + " is interested in " + canHours + " " + canSpecialty + " opportunities, that can accomodate " + canPronouns[3] + canVisa + ", beginning as early as " + canAvailabilityMonth + ", " + canAvailabilityYear + ". ";
+      p1b = canPronouns[0] + " is interested in " + canHoursString + " " + canSpecialty + " opportunities, that can accomodate " + canPronouns[3] + canVisa + ", beginning as early as " + canAvailabilityMonth + ", " + canAvailabilityYear + ". ";
     }
     else if (canVisa == "H1b Visa") {
-      p1b = canPronouns[0] + " is interested in " + canHours + " " + canSpecialty + " opportunities, that can sponsor " + canPronouns[3] + canVisa + ", beginning as early as " + canAvailabilityMonth + ", " + canAvailabilityYear + ". ";
+      p1b = canPronouns[0] + " is interested in " + canHoursString + " " + canSpecialty + " opportunities, that can sponsor " + canPronouns[3] + canVisa + ", beginning as early as " + canAvailabilityMonth + ", " + canAvailabilityYear + ". ";
     }
     else if (canVisa == "O1 Visa") {
-      p1b = canPronouns[0] + " is interested in " + canHours + " " + canSpecialty + " opportunities, beginning as early as " + canAvailabilityMonth + ", " + canAvailabilityYear + ". "
+      p1b = canPronouns[0] + " is interested in " + canHoursString + " " + canSpecialty + " opportunities, beginning as early as " + canAvailabilityMonth + ", " + canAvailabilityYear + ". "
             canFormalName + " is seeking opportunities on an " + canVisa + ". ";
     }
     else{
-      p1b = canPronouns[0] + " is interested in " + canHours + " " + canSpecialty + " opportunities, beginning as early as " + canAvailabilityMonth + ", " + canAvailabilityYear + ". "
+      p1b = canPronouns[0] + " is interested in " + canHoursString + " " + canSpecialty + " opportunities, beginning as early as " + canAvailabilityMonth + ", " + canAvailabilityYear + ". "
             canFormalName + " is seeking opportunities on a " + canVisa + ". ";
     }
   }
