@@ -75,10 +75,11 @@ var canPrefMethOfContact = [];
 var cvUpToDate = document.getElementsByName("cvUpToDate");
 var canCVUpToDate;
 var canPronouns;
+var canProStatusDescrip;
+
 
 var submitButton = document.getElementById("submit");
-var intro = document.getElementById("intro")
-var par1 = document.getElementById("p1");
+var finalID = document.getElementById("finalID");
 function candidateSubmit(){
 
   //Determines canGender
@@ -96,8 +97,15 @@ function candidateSubmit(){
     canPronouns = ["She","she","Her","her"];
   }
 
+  //Determines canProfession
+  for(var i = 0; i < profession.length; i++){
+    if(profession[i].checked){
+      canProfession = profession[i].value;
+    }
+  }
+
   //Determines canSalute
-  if(canProfession == "Physician "){
+  if(canProfession == "Physician"){
     canSalute ="Dr. ";
   }
   else if (canGender == "Male") {
@@ -105,13 +113,6 @@ function candidateSubmit(){
   }
   else{
     canSalute = "Ms. ";
-  }
-
-  //Determines canProfession
-  for(var i = 0; i < profession.length; i++){
-    if(profession[i].checked){
-      canProfession = profession[i].value + " ";
-    }
   }
 
   //Determines canProStatus
@@ -124,14 +125,14 @@ function candidateSubmit(){
   //Determines canBoard
   for(var i = 0; i < boardStatus.length; i++){
     if(boardStatus[i].checked){
-      canBoardStatus = boardStatus[i].value + " ";
+      canBoardStatus = boardStatus[i].value;
     }
   }
 
   //Determines canVisa
   for(var i = 0; i < visa.length; i++){
     if(visa[i].checked){
-      canVisa = visa[i].value + " ";
+      canVisa = visa[i].value;
     }
   }
 
@@ -305,41 +306,54 @@ function arrayToString(array){
   return result;
 }
 
+//forms list from array
+function arrayToList(array){
+  for(var i = 0; i < array.length; i++){
+    if(i == 0){
+      result = " \u2022" + array[i];
+    }
+    else{
+      result = result + "\n \u2022" + array[i];
+    }
+  }
+  return result;
+}
+
 submitButton.addEventListener("click", function(){
   console.log("run submit functions")
   candidateSubmit();
   var canHoursString = arrayToString(canHours);
   var canPrefGroupTypeString = arrayToString(canPrefGroupType);
   var canBenefitsString = arrayToString(canBenefits);
+  var canLicensesList;
 
 
-  var introString = "Initial contact with " + canSalute + canFirstName + " " + canLastName + ":";
+  var introString = "Initial contact with " + canSalute + canFirstName + " " + canLastName + ": ";
 
   var canFormalName = canSalute + canLastName + " ";
-  var canProStatusDescrip;
   var p1a;
   var p1b;
   var p1c;
+  var p1d;
 
 
   if(canProStatus == "Resident"){
     canProStatusDescrip = ["Resident","Residency"];
-    p1a = canFormalName + "will complete " + canPronouns[3] + " " + canSpecialty  + " " + canProStatusDescrip[2] + " in " + canTrainingCompletionMonth + " of " + canTrainingCompletionYear + ". ";
-    p1c = 
+    p1a = canFormalName + "will complete " + canPronouns[3] + " " + canSpecialty  + " " + canProStatusDescrip[1] + " in " + canTrainingCompletionMonth + " of " + canTrainingCompletionYear + ". ";
   }
   else if (canProStatus == "Fellow") {
     canProStatusDescrip = ["Fellow","Fellowship"];
-    p1a = canFormalName + "will complete " + canPronouns[3] + " " + canSpecialty  + " " + canProStatusDescrip[2] + " in " + canTrainingCompletionMonth + " of " + canTrainingCompletionYear + ". ";
+    p1a = canFormalName + "will complete " + canPronouns[3] + " " + canSpecialty  + " " + canProStatusDescrip[1] + " in " + canTrainingCompletionMonth + " of " + canTrainingCompletionYear + ". ";
 
   }
   else if (canProStatus == "Military") {
     canProStatusDescrip = ["Military","Military Commitment"];
-    p1a = canFormalName + "will complete " + canPronouns[3] + " " + canProStatusDescrip[2] + " in " + canTrainingCompletionMonth + " of " + canTrainingCompletionYear + ". ";
+    p1a = canFormalName + "will complete " + canPronouns[3] + " " + canProStatusDescrip[1] + " in " + canTrainingCompletionMonth + " of " + canTrainingCompletionYear + ". ";
 
   }
   else if (canProStatus == "Graduate School"){
     canProStatusDescrip = ["Graduate School", "Graduate Student", "Master's Program"];
-    p1a = canFormalName + "will complete " + canPronouns[3] + " " + canProStatusDescrip[3] + " in " + canTrainingCompletionMonth + " of " + canTrainingCompletionYear + ". ";
+    p1a = canFormalName + "will complete " + canPronouns[3] + " " + canProStatusDescrip[2] + " in " + canTrainingCompletionMonth + " of " + canTrainingCompletionYear + ". ";
   }
   else if (canProStatus == "Private Practice") {
     canProStatusDescrip = ["Private Practice","Practicing"];
@@ -350,6 +364,7 @@ submitButton.addEventListener("click", function(){
     p1a = canFormalName + "is a " + canProStatusDescrip[0] + " " + canProfession + " interested in " + canHoursString + " " + canSpecialty + " opportunities, beginning " + canAvailabilityMonth + ", " + canAvailabilityYear + ". ";
   }
 
+  //Determines p1b string
   if(canProStatus == "Resident" || "Fellow" || "Military"|| "Graduate School"){
     if(canVisa == "US Citizen"){
       p1b = canPronouns[0] + " is interested in " + canHoursString + " " + canSpecialty + " opportunities, beginning as early as " + canAvailabilityMonth + ", " + canAvailabilityYear + ". ";
@@ -387,6 +402,24 @@ submitButton.addEventListener("click", function(){
     }
   }
 
-  intro.textContent = "Initial contact with "+canSalute +" "+canFirstName+" "+canLastName+":";
-  p1.textContent = canSalute+canLastName;
+  //Determines canBoardStatus String
+  if(canBoardStatus == "N/A"){
+    p1c = "";
+  }
+  else{
+    p1c = canFormalName + "is currently a " + canBoardStatus + " " + canProfession + ". ";
+  }
+  if(canLicenses.length == 0){
+    p1d = ""
+  }
+  else{
+    canLicensesList = arrayToList(canLicenses);
+    p1d = canPronouns[0] + " is currently licensed in: \n" + canLicensesList;
+  }
+  var p1 = p1a + p1b + p1c + p1d;
+
+  finalID.value = introString + "\n \n" + p1;
+
+
+
 })
