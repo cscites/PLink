@@ -32,6 +32,8 @@ var prefGroupType = document.getElementsByName("groupType");
 var canPrefGroupType = [];
 var prefGroupSize = document.getElementById("prefGroupSize");
 var canPrefGroupSize;
+var prefGroupSizeNumber = document.getElementById("prefGroupSizeNumber");
+var canPrefGroupSizeNumber;
 var proInts = document.getElementById("profIntInput");
 var canProInts;
 var hours = document.getElementsByName("hoursType");
@@ -153,7 +155,7 @@ function candidateSubmit(){
   //Determines canPrefGroupType
   for(var i = 0; i < prefGroupType.length; i++){
     if(prefGroupType[i].checked){
-      canPrefGroupType = canPrefGroupType.push(prefGroupType[i].value);
+      canPrefGroupType.push(prefGroupType[i].value);
     }
   }
 
@@ -251,6 +253,9 @@ trainingCompletionYear.addEventListener("input",function () {
 prefGroupSize.addEventListener("input",function () {
   canPrefGroupSize = prefGroupSize.value;
 })
+prefGroupSizeNumber.addEventListener("input",function () {
+  canPrefGroupSizeNumber = prefGroupSizeNumber.value;
+})
 proInts.addEventListener("input",function () {
   canProInts = proInts.value;
 })
@@ -310,12 +315,22 @@ function arrayToString(array){
 function arrayToList(array){
   for(var i = 0; i < array.length; i++){
     if(i == 0){
-      result = " \u2022" + array[i];
+      result = " \u2022 " + array[i];
     }
     else{
-      result = result + "\n \u2022" + array[i];
+      result = result + "\n \u2022 " + array[i];
     }
   }
+  return result;
+}
+
+//forms list from string
+function stringToList(string){
+  array = string.split(";");
+  for(var i = 0; i < array.length; i++){
+    array[i] = array[i].trim();
+  }
+  result = arrayToList(array);
   return result;
 }
 
@@ -324,9 +339,13 @@ submitButton.addEventListener("click", function(){
   candidateSubmit();
   var canHoursString = arrayToString(canHours);
   var canPrefGroupTypeString = arrayToString(canPrefGroupType);
-  var canBenefitsString = arrayToString(canBenefits);
+  var canBenefitsString;
   var canLicensesList;
-
+  var canPrefPracTypeString = arrayToString(canPrefPracType);
+  var canPrefGroupTypeString = arrayToString(canPrefGroupType);
+  var canProIntsString;
+  var canEMRsString;
+  var canLanguagesString;
 
   var introString = "Initial contact with " + canSalute + canFirstName + " " + canLastName + ": ";
 
@@ -335,6 +354,16 @@ submitButton.addEventListener("click", function(){
   var p1b;
   var p1c;
   var p1d;
+  var p2a = "At this point in " + canPronouns[3] + " job search, " + canFormalName +
+            " is interested in " + canPrefPracTypeString + " opportunities. ";
+  var p2b1;
+  var p2b2;
+  var p2c;
+  var p2d1;
+  var p2d2;
+  var p2e;
+  var p2f;
+
 
 
   if(canProStatus == "Resident"){
@@ -357,7 +386,7 @@ submitButton.addEventListener("click", function(){
   }
   else if (canProStatus == "Private Practice") {
     canProStatusDescrip = ["Private Practice","Practicing"];
-    p1a = canFormalName + "is a " + canProStatusDescrip[1] + " " + canProfession + " interested in " + canHoursString + " " + canSpecialty + " opportunities, beginning " + canAvailabilityMonth + ", " + canAvailabilityYear + ". ";
+    p1a = canFormalName + "is a " + canProStatusDescrip[1] + " " + canProfession + " interested in " + canHoursString + ", " + canSpecialty + " opportunities, beginning " + canAvailabilityMonth + ", " + canAvailabilityYear + ". ";
   }
   else if (canProStatus == "Retired") {
     canProStatusDescrip = ["Retired","Retirement"];
@@ -365,7 +394,7 @@ submitButton.addEventListener("click", function(){
   }
 
   //Determines p1b string
-  if(canProStatus == "Resident" || "Fellow" || "Military"|| "Graduate School"){
+  if(canProStatus == "Resident" ||canProStatus ==  "Fellow" ||canProStatus ==  "Military" ||canProStatus ==  "Graduate School"){
     if(canVisa == "US Citizen"){
       p1b = canPronouns[0] + " is interested in " + canHoursString + " " + canSpecialty + " opportunities, beginning as early as " + canAvailabilityMonth + ", " + canAvailabilityYear + ". ";
     }
@@ -389,10 +418,10 @@ submitButton.addEventListener("click", function(){
       p1b = "";
     }
     else if (canVisa == "J1 Visa") {
-      p1b = canPronouns[0] + " is interested in opportunities, that can accomodate " + canPronouns[3] + canVisa + ". ";
+      p1b = canPronouns[0] + " is interested in opportunities, that can accomodate " + canPronouns[3] + " " + canVisa + ". ";
     }
     else if (canVisa == "H1b Visa") {
-      p1b = canPronouns[0] + " is interested in opportunities, that can sponsor " + canPronouns[3] + canVisa + ". ";
+      p1b = canPronouns[0] + " is interested in opportunities, that can sponsor " + canPronouns[3] + " " + canVisa + ". ";
     }
     else if (canVisa == "O1 Visa") {
       p1b = canFormalName + " is seeking opportunities on an " + canVisa + ". ";
@@ -416,9 +445,98 @@ submitButton.addEventListener("click", function(){
     canLicensesList = arrayToList(canLicenses);
     p1d = canPronouns[0] + " is currently licensed in: \n" + canLicensesList;
   }
-  var p1 = p1a + p1b + p1c + p1d;
 
-  finalID.value = introString + "\n \n" + p1;
+  //Determines p2b1 and p2b2 strings
+  if(canPrefGroupType.length == 0){
+    p2b1 = "";
+    if(canPrefGroupSize == undefined){
+      p2b2 = canPronouns[0] + " would prefer to be in a Group of " + canPrefGroupSizeNumber + ". ";
+    }
+    else if (canPrefGroupSize == "flexible") {
+      p2b2 = canPronouns[0] + " is flexible in terms of Group size. "
+    }
+    else{
+      p2b2 = canPronouns[0] + " would prefer to be in a " + canPrefGroupSize + " Group. "
+    }
+  }
+  else if (canPrefGroupType.length == 1) {
+    p2b1 = canPronouns[0] + " would prefer a " + canPrefGroupTypeString;
+    if(canPrefGroupSize == undefined){
+      p2b2 = " and would prefer to be in a Group of " + canPrefGroupSizeNumber + ". ";
+    }
+    else if (canPrefGroupSize == "flexible") {
+      p2b2 = " and is flexible in terms of Group size. "
+    }
+    else{
+      p2b2 = " and would prefer to be in a " + canPrefGroupSize + " Group. "
+    }
+  }
+  else{
+    p2b1 = canPronouns[0] + " is open to a " + canPrefGroupTypeString;
+    if(canPrefGroupSize == undefined){
+      p2b2 = " and would prefer to be in a Group of " + canPrefGroupSizeNumber + ". ";
+    }
+    else if (canPrefGroupSize == "flexible") {
+      p2b2 = " and is flexible in terms of Group size. "
+    }
+    else{
+      p2b2 = " and would prefer to be in a " + canPrefGroupSize + " Group. "
+    }
+  }
+
+  //Determines p2c string
+  if(canProInts == undefined){
+    p2c = canFormalName + " enjoys all aspects of " + canSpecialty + " and will be looking for a General, Bread and Butter " + canSpecialty + " Practice. ";
+  }
+  else{
+    canProIntsString = stringToList(canProInts);
+    p2c = canFormalName + " enjoys all aspects of " + canSpecialty + " and is particularly interested in: \n" + canProIntsString + "\n";
+  }
+
+  //Determines p2d1 string
+  if(canAdvPracs == "yes"){
+    p2d1 = canPronouns[0] + " welcomes the opportunity to work with Advanced Practitioners";
+  }
+  else{
+    p2d1 = canPronouns[0] + " prefers not to work with Advanced Practitioners";
+  }
+
+  //determines canEMRsString and p2d2
+  if(canEMRs == undefined){
+    p2d2 = ". ";
+  }
+  else{
+    canEMRsString = stringToList(canEMRs);
+    p2d2 = " and is experienced with the following EMRs: \n" + canEMRsString + "\n";
+  }
+
+  //determines p2e
+  if(canBenefits.length == 0){
+    p2e = "";
+  }
+  else{
+    canBenefitsString = arrayToString(canBenefits);
+    p2e = canFormalName + " is particulalry interested in opportunities that provide " + canBenefitsString + ". ";
+  }
+
+  //determines p2f and canLanguagesString
+  if(canLastName == undefined){
+    p2f = "";
+  }
+  else{
+    canLanguagesString = canLanguages.split(";");
+    for(var i = 0; i < canLanguagesString.length; i++){
+      canLanguagesString[i] = canLanguagesString[i].trim();
+    }
+    canLanguagesString = arrayToString(canLanguagesString);
+    canLanguagesString = canLanguagesString.replace(/or/, "and");
+    p2f = canPronouns[0] + " speaks " + canLanguagesString + ". "
+  }
+
+  var p1 = p1a + p1b + p1c + p1d;
+  var p2 = p2a + p2b1 + p2b2 + p2c + p2d1 + p2d2 + p2e + p2f;
+
+  finalID.value = introString + "\n \n" + p1 + "\n \n" + p2;
 
 
 
