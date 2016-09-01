@@ -497,13 +497,30 @@ submitButton.addEventListener("click", function(){
   if(canAdvPracs == "yes"){
     p2d1 = canPronouns[0] + " welcomes the opportunity to work with Advanced Practitioners";
   }
-  else{
+  else if (canAdvPracs == "no") {
     p2d1 = canPronouns[0] + " prefers not to work with Advanced Practitioners";
+  }
+  else{
+    p2d1 = "";
   }
 
   //determines canEMRsString and p2d2
   if(canEMRs == undefined){
-    p2d2 = ". ";
+    if(canAdvPracs == undefined){
+      p2d2 = "";
+    }
+    else{
+      p2d2 = ". ";
+    }
+  }
+  else if (canAdvPracs == undefined) {
+    if(canEMRs == undefined){
+      p2d2 = "";
+    }
+    else{
+      canEMRsString = stringToList(canEMRs);
+      p2d2 = canPronouns[0] + " is experienced with the following EMRs: \n" + canEMRsString + "\n";
+    }
   }
   else{
     canEMRsString = stringToList(canEMRs);
@@ -516,11 +533,11 @@ submitButton.addEventListener("click", function(){
   }
   else{
     canBenefitsString = arrayToString(canBenefits);
-    p2e = canFormalName + " is particulalry interested in opportunities that provide " + canBenefitsString + ". ";
+    p2e = canFormalName + "is particulalry interested in opportunities that provide " + canBenefitsString + ". ";
   }
 
   //determines p2f and canLanguagesString
-  if(canLastName == undefined){
+  if(canLanguages == undefined){
     p2f = "";
   }
   else{
