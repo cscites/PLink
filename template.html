@@ -344,6 +344,56 @@
       </div>
     </div>
     <hr class="col-md-12 divider">
+    <!--Open to Reloction -->
+    <div class="col-xs-12 pane" id="advPrac">
+      <div class="col-md-12">
+        <h4>Open to relocation:</h4>
+      </div>
+      <div class="col-md-12">
+        <form class="relocate" action="index.html" method="post">
+          <input type="radio" name="relocation" value="yes">yes<br>
+          <input type="radio" name="relocation" value="no">no<br>
+        </form>
+      </div>
+      <div class="col-md-12">
+        <div class="col-md-12">
+          If no:
+        </div>
+        <div class="col-md-3">
+          <div class="col-md-12">
+            Current City:
+          </div>
+          <div class="col-md-12">
+            <input type="text" id="currentCity" value="">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="col-md-12">
+            Current State:
+          </div>
+          <div class="col-md-12">
+            <input type="text" id="currentState" value="">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="col-md-12">
+            Current Zip Code:
+          </div>
+          <div class="col-md-12">
+            <input type="text" id="currentZip" value="">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="col-md-12">
+            Maximum Commute:
+          </div>
+          <div class="col-md-12">
+            <input type="text" id="maximumCommute" value="">
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!--Preferred States-->
     <div class="col-md-6 col-xs-12 col-md-offset-3" id="prefStates">
       <div class="col-md-12">
@@ -422,7 +472,16 @@
         <h4>Areas of Specific Geographic Interest:</h4>
       </div>
       <div class="col-md-12">
-        <textarea name="geoInt"  id="geoInt" rows="8" cols="90%"></textarea>
+        <textarea name="geoInt"  id="geoInt" rows="4" cols="90%"></textarea>
+      </div>
+    </div>
+    <!--Reasons for Geographic Interest-->
+    <div class="col-md-9 col-md-offset-2" id="specificGeoInt">
+      <div class="col-md-12">
+        <h4>Reasons for Geographic Interest:</h4>
+      </div>
+      <div class="col-md-12">
+        <textarea name="reasons"  id="reasonsForGeoInt" rows="4" cols="90%"></textarea>
       </div>
     </div>
     <!--Significant Others-->
@@ -435,6 +494,7 @@
           <input type="radio" name="sigOthers" value="Significant Other">Significant Other<br>
           <input type="radio" name="sigOthers" value="Fiance">Fiance<br>
           <input type="radio" name="sigOthers" value="Spouse">Spouse<br>
+          <input type="radio" name="sigOthers" value="N/A">N/A<br>
         </form>
       </div>
     </div>
@@ -486,8 +546,23 @@
         <textarea name="childrenActivities" id="childrenActivities" rows="5" cols="30"></textarea>
       </div>
     </div>
+    <!--Children Schools-->
+    <div class="col-md-3 col-xs-12 col-md-offset-1 pane" id="children">
+      <div class="col-md-12">
+        <h4>Children School Type:</h4>
+      </div>
+      <div class="col-md-12">
+        <form class="childrenSchoolType" action="index.html" method="post">
+          <input type="checkbox" name="childrenSchoolType" value="public">Public<br>
+          <input type="checkbox" name="childrenSchoolType" value="private">Private<br>
+          <input type="checkbox" name="childrenSchoolType" value="parochial">Parochial<br>
+          <input type="checkbox" name="childrenSchoolType" value="montessori">Montessori<br>
+          <input type="checkbox" name="childrenSchoolType" value="magnet">Magnet<br>
+        </form>
+      </div>
+    </div>
     <!--Leisure Activities-->
-    <div class="col-md-3 col-xs-12 col-md-offset-1 pane">
+    <div class="col-md-3 col-xs-12 pane">
       <div class="col-md-12">
         <h4>Leisure Activities:</h4>
       </div>
@@ -561,7 +636,7 @@
       </div>
     </div>
     <hr class="col-md-12 divider">
-    <div class="col-md-12 col-md-ofprofession">
+    <div class="col-md-12">
       <div class="col-md-6 col-xs-12">
         <input type="button" id="submit" value="Submit">
       </div>
