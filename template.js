@@ -44,6 +44,8 @@ var emrs = document.getElementById("knownEMRs");
 var canEMRs;
 var benefits = document.getElementsByName("benefits");
 var canBenefits = [];
+var prefSchedule = document.getElementById("prefSchedule");
+var canPrefSchedule;
 var languages = document.getElementById("spokenLanguages");
 var canLanguages;
 var prefStates = document.getElementsByName("prefStates");
@@ -224,7 +226,7 @@ function candidateSubmit(){
   //Determines canChildrenSchoolType
   for(var i = 0; i < childrenSchoolType.length; i++){
     if(childrenSchoolType[i].checked){
-      canChildrenSchoolType = childrenSchoolType[i].value;
+      canChildrenSchoolType.push(childrenSchoolType[i].value);
     }
   }
 
@@ -289,6 +291,9 @@ proInts.addEventListener("input",function () {
 })
 emrs.addEventListener("input",function () {
   canEMRs = emrs.value;
+})
+prefSchedule.addEventListener("input",function () {
+  canPrefSchedule = prefSchedule.value;
 })
 languages.addEventListener("input",function () {
   canLanguages = languages.value;
@@ -519,40 +524,50 @@ submitButton.addEventListener("click", function(){
   //Determines p2b1 and p2b2 strings
   if(canPrefGroupType.length == 0){
     p2b1 = "";
-    if(canPrefGroupSize == undefined){
+    if(canPrefGroupSize == undefined && canPrefGroupSizeNumber == undefined){
+      p2b2 = canPronouns[0] + " is flexible in terms of Group size. ";
+    }
+    else if(canPrefGroupSize == undefined){
       p2b2 = canPronouns[0] + " would prefer to be in a Group of " + canPrefGroupSizeNumber + ". ";
     }
     else if (canPrefGroupSize == "flexible") {
-      p2b2 = canPronouns[0] + " is flexible in terms of Group size. "
+      p2b2 = canPronouns[0] + " is flexible in terms of Group size. ";
     }
     else{
-      p2b2 = canPronouns[0] + " would prefer to be in a " + canPrefGroupSize + " Group. "
+      p2b2 = canPronouns[0] + " would prefer to be in a " + canPrefGroupSize + " Group. ";
     }
   }
   else if (canPrefGroupType.length == 1) {
     p2b1 = canPronouns[0] + " would prefer a " + canPrefGroupTypeString;
-    if(canPrefGroupSize == undefined){
+    if(canPrefGroupSize == undefined && canPrefGroupSizeNumber == undefined){
+      p2b2 = canPronouns[0] + " is flexible in terms of Group size. ";
+    }
+    else if(canPrefGroupSize == undefined){
       p2b2 = " and would prefer to be in a Group of " + canPrefGroupSizeNumber + ". ";
     }
     else if (canPrefGroupSize == "flexible") {
-      p2b2 = " and is flexible in terms of Group size. "
+      p2b2 = " and is flexible in terms of Group size. ";
     }
     else{
-      p2b2 = " and would prefer to be in a " + canPrefGroupSize + " Group. "
+      p2b2 = " and would prefer to be in a " + canPrefGroupSize + " Group. ";
     }
   }
   else{
     p2b1 = canPronouns[0] + " is open to a " + canPrefGroupTypeString;
-    if(canPrefGroupSize == undefined){
+    if(canPrefGroupSize == undefined && canPrefGroupSizeNumber == undefined){
+      p2b2 = canPronouns[0] + " is flexible in terms of Group size. ";
+    }
+    else if(canPrefGroupSize == undefined){
       p2b2 = " and would prefer to be in a Group of " + canPrefGroupSizeNumber + ". ";
     }
     else if (canPrefGroupSize == "flexible") {
-      p2b2 = " and is flexible in terms of Group size. "
+      p2b2 = " and is flexible in terms of Group size. ";
     }
     else{
-      p2b2 = " and would prefer to be in a " + canPrefGroupSize + " Group. "
+      p2b2 = " and would prefer to be in a " + canPrefGroupSize + " Group. ";
     }
   }
+
 
   //Determines p2c string
   if(canProInts == undefined){
@@ -597,6 +612,13 @@ submitButton.addEventListener("click", function(){
     p2d2 = " and is experienced with the following EMRs: \n" + canEMRsString + "\n";
   }
 
+  //determines p2d3
+  if(canPrefSchedule != undefined){
+    p2d3 = canPronouns[0] + " would prefer to work a schedule of " + canPrefSchedule;
+  }
+  else{
+    p2d3 = "";
+  }
   //determines p2e
   if(canBenefits.length == 0){
     p2e = "";
@@ -623,7 +645,12 @@ submitButton.addEventListener("click", function(){
   }
   else{
     canPrefStatesList = arrayToString(canPrefStates);
-    p3a = "Geographically, " + canFormalName + "is interested in opportunities in " + canPrefStatesList + ". ";
+    if(canPrefStatesList == "open"){
+      p3a = "Geographically, " + canFormalName + "is interested in opportunities in nationwide. ";
+    }
+    else{
+      p3a = "Geographically, " + canFormalName + "is interested in opportunities in " + canPrefStatesList + ". ";
+    }
   }
 
   //determines p3b,c,d.
@@ -642,7 +669,7 @@ submitButton.addEventListener("click", function(){
       if(canReasonsForGeoInt != undefined){
         canReasonsForGeoIntString = inputToString(canReasonsForGeoInt);
         canReasonsForGeoIntString = canReasonsForGeoIntString.replace(/or/, "and");
-        p3c = canFormalName + "is interested in these areas because of " + canReasonsForGeoIntString;
+        p3c = canFormalName + "is interested in these areas because " + canReasonsForGeoIntString +". ";
       }
       else{
         p3c = "";
@@ -653,13 +680,13 @@ submitButton.addEventListener("click", function(){
       if(canReasonsForGeoInt != undefined){
         canReasonsForGeoIntString = inputToString(canReasonsForGeoInt);
         canReasonsForGeoIntString = canReasonsForGeoIntString.replace(/or/, "and");
-        p3c = canFormalName + "is interested in these states because "
+        p3c = canFormalName + "is interested in these states because " + canReasonsForGeoIntString + ". ";
       }
       else{
         p3c = "";
       }
     }
-    if(canSigOther != "N/A"){
+    if(canSigOther != "N/A" || canSigOther != undefined){
       p3d = canFormalName + "has a " + canSigOther;
       if(canSigOtherName != undefined){
         p3d = p3d + ", " + canSigOtherName;
@@ -674,22 +701,21 @@ submitButton.addEventListener("click", function(){
   }
 
   //determines p3e
-  if(canChildren == "no" || canChildre == undefined){
+  if(canChildren == "no" || canChildren == undefined){
     p3e = "";
   }
   else{
     var numChildren;
-    if(canChildren != undefined){
+    p3e = canFormalName + "does have children";
+    if(canChildrenNames != undefined){
       numChildren = canChildrenNames.split(";");
       numChildren = numChildren.length;
-    }
-    if(numChildren < 2){
-      p3e = canFormalName + "does have a child";
-    }
-    else{
-      p3e = canFormalName + "does have children";
-    }
-    if(canChildrenNames != undefined){
+      if(numChildren < 2){
+        p3e = canFormalName + "does have a child";
+      }
+      else{
+        p3e = canFormalName + "does have children";
+      }
       canChildrenNamesString = inputToString(canChildrenNames);
       p3e = p3e + " named " + canChildrenNamesString;
     }
@@ -740,13 +766,13 @@ submitButton.addEventListener("click", function(){
   p4b = p4b + " and welcomes contact from potential employers via " + canPrefMethOfContactString + ". ";
 
   //determines p4c
+  var p4cPronoun;
   if(canCVUpToDate == "yes"){
-    var p4cPronoun;
     if(canGender == "male"){
-      p4cPronoun = canPronouns[4];
+      p4cPronoun = "him";
     }
     else{
-      p4cPronoun = canPronouns[3];
+      p4cPronoun = "her";
     }
     p4c = canFormalName + "does have " + canPronouns[3] + " formal CV up to date and it is available from "
           + p4cPronoun + " upon request."
@@ -756,7 +782,7 @@ submitButton.addEventListener("click", function(){
   }
 
   var p1 = p1a + p1b + p1c + p1d;
-  var p2 = p2a + p2b1 + p2b2 + p2c + p2d1 + p2d2 + p2e + p2f;
+  var p2 = p2a + p2b1 + p2b2 + p2c + p2d1 + p2d2 + p2d3 + p2e + p2f;
   var p3 = p3a + p3b + p3c + p3d + p3e + p3f;
   var p4 = p4a + p4b + p4c;
 
