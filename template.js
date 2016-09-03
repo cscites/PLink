@@ -236,9 +236,9 @@ function candidateSubmit(){
   }
 
   //Determines canVirtInterview
-  for(var i = 0; i < virtualInterview.length; i++){
-    if(virtualInterview[i].checked){
-      canVirtInterview = virtualInterview[i].value;
+  for(var i = 0; i < virtInterview.length; i++){
+    if(virtInterview[i].checked){
+      canVirtInterview = virtInterview[i].value;
     }
   }
 
@@ -313,6 +313,9 @@ leisureActivities.addEventListener("input",function () {
 })
 noticeTillInterview.addEventListener("input",function () {
   canNoticeTillInterview = noticeTillInterview.value;
+})
+virtInterviewMethod.addEventListener("input",function () {
+  canVirtInterviewMethod = virtInterviewMethod.value;
 })
 currentCity.addEventListener("input",function () {
   canCurrentCity = currentCity.value;
@@ -411,7 +414,7 @@ submitButton.addEventListener("click", function(){
   var p1c;
   var p1d;
   var p2a = "At this point in " + canPronouns[3] + " job search, " + canFormalName +
-            " is interested in " + canPrefPracTypeString + " opportunities. ";
+            "is interested in " + canPrefPracTypeString + " opportunities. ";
   var p2b1;
   var p2b2;
   var p2c;
@@ -553,11 +556,11 @@ submitButton.addEventListener("click", function(){
 
   //Determines p2c string
   if(canProInts == undefined){
-    p2c = canFormalName + " enjoys all aspects of " + canSpecialty + " and will be looking for a General, Bread and Butter " + canSpecialty + " Practice. ";
+    p2c = canFormalName + "enjoys all aspects of " + canSpecialty + " and will be looking for a General, Bread and Butter " + canSpecialty + " Practice. ";
   }
   else{
     canProIntsString = stringToList(canProInts);
-    p2c = canFormalName + " enjoys all aspects of " + canSpecialty + " and is particularly interested in: \n" + canProIntsString + "\n";
+    p2c = canFormalName + "enjoys all aspects of " + canSpecialty + " and is particularly interested in: \n" + canProIntsString + "\n";
   }
 
   //Determines p2d1 string
@@ -600,7 +603,7 @@ submitButton.addEventListener("click", function(){
   }
   else{
     canBenefitsString = arrayToString(canBenefits);
-    p2e = canFormalName + "is particulalry interested in opportunities that provide " + canBenefitsString + ". ";
+    p2e = canFormalName + "is particularly interested in opportunities that provide " + canBenefitsString + ". ";
   }
 
   //determines p2f and canLanguagesString
@@ -620,7 +623,7 @@ submitButton.addEventListener("click", function(){
   }
   else{
     canPrefStatesList = arrayToString(canPrefStates);
-    p3a = "Geographically, " + canFormalName + "is interested in opportunities in " + canPrefStatesList + ".";
+    p3a = "Geographically, " + canFormalName + "is interested in opportunities in " + canPrefStatesList + ". ";
   }
 
   //determines p3b,c,d.
@@ -639,7 +642,7 @@ submitButton.addEventListener("click", function(){
       if(canReasonsForGeoInt != undefined){
         canReasonsForGeoIntString = inputToString(canReasonsForGeoInt);
         canReasonsForGeoIntString = canReasonsForGeoIntString.replace(/or/, "and");
-        p3c = canFormalName + "is interested in these areas because "
+        p3c = canFormalName + "is interested in these areas because of " + canReasonsForGeoIntString;
       }
       else{
         p3c = "";
@@ -671,7 +674,7 @@ submitButton.addEventListener("click", function(){
   }
 
   //determines p3e
-  if(canChildren == "no"){
+  if(canChildren == "no" || canChildre == undefined){
     p3e = "";
   }
   else{
@@ -687,6 +690,7 @@ submitButton.addEventListener("click", function(){
       p3e = canFormalName + "does have children";
     }
     if(canChildrenNames != undefined){
+      canChildrenNamesString = inputToString(canChildrenNames);
       p3e = p3e + " named " + canChildrenNamesString;
     }
     if(canChildrenActivities != undefined){
@@ -705,32 +709,32 @@ submitButton.addEventListener("click", function(){
   //determines p3f
   if(canLeisureActivities != undefined){
     var canLeisureActivitiesList = stringToList(canLeisureActivities);
-    p3f = "In " + canPronouns[3] + "free time, " + canFormalName + "enjoys: \n"
+    p3f = "In " + canPronouns[3] + " free time, " + canFormalName + "enjoys: \n"
           + canLeisureActivitiesList;
   }
   else {
-    p3f = "In " + canPronouns[3] + "free time, " + canFormalName + "enjoys outdoor activities and spending time with family and friends.";
+    p3f = "In " + canPronouns[3] + " free time, " + canFormalName + "enjoys outdoor activities and spending time with family and friends.";
   }
 
   //determines p4a
   if(canInterviewing == "yes"){
     p4a = canFormalName + "has begun interviewing with employers and currently needs "
-          + canNoticeTillInterview + "\'\ notice prior to a formal interview to adjust"
-          + canPronouns[3] " schedule. ";
+          + canNoticeTillInterview + "\' notice prior to a formal interview to adjust "
+          + canPronouns[3] + " schedule. ";
   }
   else{
     p4a = canFormalName + "is ready to begin interviewing with employers and currently needs "
-          + canNoticeTillInterview + "\'\ notice prior to a formal interview to adjust"
-          + canPronouns[3] " schedule. ";
+          + canNoticeTillInterview + "\'\ notice prior to a formal interview to adjust "
+          + canPronouns[3] + " schedule. ";
   }
 
   //determines p4b
   if(canVirtInterview == "yes"){
     var canVirtInterviewMethodString = inputToString(canVirtInterviewMethod);
-    p4b = canPronouns[0] + "is available for preliminary interviews via " + canVirtInterviewMethodString;
+    p4b = canPronouns[0] + " is available for preliminary interviews via " + canVirtInterviewMethodString;
   }
   else{
-    p4b = canPronouns[0] + "is available for preliminary interviews via phone";
+    p4b = canPronouns[0] + " is available for preliminary interviews via phone";
   }
   var canPrefMethOfContactString = arrayToString(canPrefMethOfContact);
   p4b = p4b + " and welcomes contact from potential employers via " + canPrefMethOfContactString + ". ";
@@ -744,7 +748,7 @@ submitButton.addEventListener("click", function(){
     else{
       p4cPronoun = canPronouns[3];
     }
-    p4c = canFormalName + "does have " + canPronouns[3] + " formal CV up to date and it is availble from "
+    p4c = canFormalName + "does have " + canPronouns[3] + " formal CV up to date and it is available from "
           + p4cPronoun + " upon request."
   }
   else{
