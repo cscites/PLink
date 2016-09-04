@@ -686,7 +686,10 @@ submitButton.addEventListener("click", function(){
         p3c = "";
       }
     }
-    if(canSigOther != "N/A" || canSigOther != undefined){
+    if(canSigOther == "N/A" || canSigOther == undefined){
+      p3d = "";
+    }
+    else{
       p3d = canFormalName + "has a " + canSigOther;
       if(canSigOtherName != undefined){
         p3d = p3d + ", " + canSigOtherName;
@@ -694,9 +697,7 @@ submitButton.addEventListener("click", function(){
       if(canSigOtherCareer != undefined){
         p3d = p3d + ", who will be looking for " + canSigOtherCareer + " opportunities. ";
       }
-    }
-    else{
-      p3d = "";
+      p3d = p3d + ". ";
     }
   }
 
@@ -768,7 +769,7 @@ submitButton.addEventListener("click", function(){
   //determines p4c
   var p4cPronoun;
   if(canCVUpToDate == "yes"){
-    if(canGender == "male"){
+    if(canGender == "Male"){
       p4cPronoun = "him";
     }
     else{
