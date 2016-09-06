@@ -100,6 +100,14 @@ var submitButton = document.getElementById("submit");
 var finalID = document.getElementById("finalID");
 function candidateSubmit(){
 
+  //Determines canSpecialty
+  canSpecialty = $("#specialty option:selected").val();
+
+  //Determines canAvailabilityMonth
+  canAvailabilityMonth = $("#availabilityMonth option:selected").val();
+
+  //Determines canTrainingCompletionMonth
+  canTrainingCompletionMonth = $("#completionMonth option:selected").val();
   //Determines canGender
   for(var i = 0; i < gender.length; i++){
     if(gender[i].checked){
@@ -265,18 +273,18 @@ firstName.addEventListener("input",function () {
 lastName.addEventListener("input",function () {
   canLastName = lastName.value;
 })
-specialty.addEventListener("input",function () {
-  canSpecialty = specialty.value;
-})
-availabilityMonth.addEventListener("input",function () {
-  canAvailabilityMonth = availabilityMonth.value;
-})
+//specialty.addEventListener("input",function () {
+//  canSpecialty = specialty.value;
+//})
+//availabilityMonth.addEventListener("input",function () {
+//  canAvailabilityMonth = availabilityMonth.value;
+//})
 availabilityYear.addEventListener("input",function () {
   canAvailabilityYear = availabilityYear.value;
 })
-trainingCompletionMonth.addEventListener("input",function () {
-  canTrainingCompletionMonth = trainingCompletionMonth.value;
-})
+//trainingCompletionMonth.addEventListener("input",function () {
+//  canTrainingCompletionMonth = trainingCompletionMonth.value;
+//})
 trainingCompletionYear.addEventListener("input",function () {
   canTrainingCompletionYear = trainingCompletionYear.value;
 })
@@ -511,7 +519,7 @@ submitButton.addEventListener("click", function(){
     p1c = "";
   }
   else{
-    p1c = canFormalName + "is currently a " + canBoardStatus + " " + canProfession + ". ";
+    p1c = canFormalName + "is currently a " + canBoardStatus + " " + canProfession + "in " + canSpecialty + ". ";
   }
   if(canLicenses.length == 0){
     p1d = ""
@@ -575,7 +583,7 @@ submitButton.addEventListener("click", function(){
   }
   else{
     canProIntsString = stringToList(canProInts);
-    p2c = canFormalName + "enjoys all aspects of " + canSpecialty + " and is particularly interested in: \n" + canProIntsString + "\n";
+    p2c = canFormalName + "enjoys all aspects of " + canSpecialty + " and is is interested in: \n" + canProIntsString + "\n";
   }
 
   //Determines p2d1 string
@@ -757,8 +765,13 @@ submitButton.addEventListener("click", function(){
 
   //determines p4b
   if(canVirtInterview == "yes"){
-    var canVirtInterviewMethodString = inputToString(canVirtInterviewMethod);
-    p4b = canPronouns[0] + " is available for preliminary interviews via " + canVirtInterviewMethodString;
+    if(canVirtInterviewMethod == undefined){
+      p4b = canPronouns[0] + " is available for preliminary interviews via Skype, FaceTime, or another web conferencing service";
+    }
+    else{
+      var canVirtInterviewMethodString = inputToString(canVirtInterviewMethod);
+      p4b = canPronouns[0] + " is available for preliminary interviews via " + canVirtInterviewMethodString;
+    }
   }
   else{
     p4b = canPronouns[0] + " is available for preliminary interviews via phone";
