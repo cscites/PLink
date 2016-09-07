@@ -97,6 +97,7 @@ var canProStatusDescrip;
 
 
 var submitButton = document.getElementById("submit");
+var resetButton = document.getElementById("reset");
 var finalID = document.getElementById("finalID");
 function candidateSubmit(){
 
@@ -402,6 +403,10 @@ function inputToString(input) {
   return result;
 }
 
+resetButton.addEventListener("click", function(){
+  location.reload();
+})
+
 submitButton.addEventListener("click", function(){
   console.log("run submit functions")
   candidateSubmit();
@@ -469,20 +474,38 @@ submitButton.addEventListener("click", function(){
   }
   else if (canProStatus == "Private Practice") {
     canProStatusDescrip = ["Private Practice","Practicing"];
-    p1a = canFormalName + "is a " + canProStatusDescrip[1] + " " + canProfession + " interested in " + canHoursString + ", " + canSpecialty + " opportunities, beginning " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
+    if(canProfession == "Physician"){
+      p1a = canFormalName + "is a " + canProStatusDescrip[1] + " " + canProfession + " interested in " + canHoursString + ", " + canSpecialty + " opportunities, beginning " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
+    }
+    else{
+      p1a = canFormalName + "is a " + canProStatusDescrip[1] + " " + canProfession + " interested in " + canHoursString + " opportunities, beginning " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
+    }
   }
   else if (canProStatus == "Retired") {
     canProStatusDescrip = ["Retired","Retirement"];
-    p1a = canFormalName + "is a " + canProStatusDescrip[0] + " " + canProfession + " interested in " + canHoursString + " " + canSpecialty + " opportunities, beginning " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
+    if(canProfession == "Physician"){
+      p1a = canFormalName + "is a " + canProStatusDescrip[0] + " " + canProfession + " interested in " + canHoursString + " " + canSpecialty + " opportunities, beginning " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
+    }
+    else{
+      p1a = canFormalName + "is a " + canProStatusDescrip[0] + " " + canProfession + " interested in " + canHoursString + " opportunities, beginning " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
+    }
+  }
+  else {
+    if(canProfession == "Physician"){
+      p1a = canFormalName + "is a " + canProfession + " interested in " + canHoursString + " " + canSpecialty + " opportunities, beginning " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
+    }
+    else{
+      p1a = canFormalName + "is a " + canProfession + " interested in " + canHoursString + " opportunities, beginning " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
+    }
   }
 
   //Determines p1b string
-  if(canProStatus == "Resident" ||canProStatus ==  "Fellow" ||canProStatus ==  "Military" ||canProStatus ==  "Graduate School"){
+  if(canProStatus == "Resident" ||canProStatus ==  "Fellow" ||canProStatus ==  "Military"){
     if(canVisa == "US Citizen"){
       p1b = canPronouns[0] + " is interested in " + canHoursString + " " + canSpecialty + " opportunities, beginning as early as " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
     }
     else if (canVisa == "J1 Visa") {
-      p1b = canPronouns[0] + " is interested in " + canHoursString + " " + canSpecialty + " opportunities, that can accomodate " + canPronouns[3] + canVisa + ", beginning as early as " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
+      p1b = canPronouns[0] + " is interested in " + canHoursString + " " + canSpecialty + " opportunities, that can accomodate " + canPronouns[3] + " " + canVisa + ", beginning as early as " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
     }
     else if (canVisa == "H1b Visa") {
       p1b = canPronouns[0] + " is interested in " + canHoursString + " " + canSpecialty + " opportunities, that can sponsor " + canPronouns[3] + canVisa + ", beginning as early as " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
@@ -493,6 +516,25 @@ submitButton.addEventListener("click", function(){
     }
     else{
       p1b = canPronouns[0] + " is interested in " + canHoursString + " " + canSpecialty + " opportunities, beginning as early as " + canAvailabilityMonth + " " + canAvailabilityYear + ". "
+            canFormalName + " is seeking opportunities on a " + canVisa + ". ";
+    }
+  }
+  else if (canProStatus ==  "Graduate School") {
+    if(canVisa == "US Citizen"){
+      p1b = canPronouns[0] + " is interested in " + canHoursString + " opportunities, beginning as early as " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
+    }
+    else if (canVisa == "J1 Visa") {
+      p1b = canPronouns[0] + " is interested in " + canHoursString + " opportunities, that can accomodate " + canPronouns[3] + " " + canVisa + ", beginning as early as " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
+    }
+    else if (canVisa == "H1b Visa") {
+      p1b = canPronouns[0] + " is interested in " + canHoursString + " opportunities, that can sponsor " + canPronouns[3] + canVisa + ", beginning as early as " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
+    }
+    else if (canVisa == "O1 Visa") {
+      p1b = canPronouns[0] + " is interested in " + canHoursString + " opportunities, beginning as early as " + canAvailabilityMonth + " " + canAvailabilityYear + ". "
+            canFormalName + " is seeking opportunities on an " + canVisa + ". ";
+    }
+    else{
+      p1b = canPronouns[0] + " is interested in " + canHoursString + " opportunities, beginning as early as " + canAvailabilityMonth + " " + canAvailabilityYear + ". "
             canFormalName + " is seeking opportunities on a " + canVisa + ". ";
     }
   }
@@ -519,7 +561,12 @@ submitButton.addEventListener("click", function(){
     p1c = "";
   }
   else{
-    p1c = canFormalName + "is currently a " + canBoardStatus + " " + canProfession + "in " + canSpecialty + ". ";
+    if(canProfession == "Physician"){
+      p1c = canFormalName + "is currently a " + canBoardStatus + " " + canProfession + " in " + canSpecialty + ". ";
+    }
+    else {
+      p1c = canFormalName + "is currently a " + canBoardStatus + " " + canProfession + ". ";
+    }
   }
   if(canLicenses.length == 0){
     p1d = ""
@@ -548,7 +595,7 @@ submitButton.addEventListener("click", function(){
   else if (canPrefGroupType.length == 1) {
     p2b1 = canPronouns[0] + " would prefer a " + canPrefGroupTypeString;
     if(canPrefGroupSize == undefined && canPrefGroupSizeNumber == undefined){
-      p2b2 = canPronouns[0] + " is flexible in terms of Group size. ";
+      p2b2 = " and " + canPronouns[1] + " is flexible in terms of Group size. ";
     }
     else if(canPrefGroupSize == undefined){
       p2b2 = " and would prefer to be in a Group of " + canPrefGroupSizeNumber + ". ";
@@ -583,7 +630,12 @@ submitButton.addEventListener("click", function(){
   }
   else{
     canProIntsString = stringToList(canProInts);
-    p2c = canFormalName + "enjoys all aspects of " + canSpecialty + " and is is interested in: \n" + canProIntsString + "\n";
+    if(canProfession == "Physician"){
+      p2c = canFormalName + "enjoys all aspects of " + canSpecialty + " and is interested in: \n" + canProIntsString + "\n";
+    }
+    else{
+      p2c = canFormalName + " is particularly interested in: \n" + canSpecialty + "\n" + canProIntsString + "\n";
+    }
   }
 
   //Determines p2d1 string
@@ -622,7 +674,7 @@ submitButton.addEventListener("click", function(){
 
   //determines p2d3
   if(canPrefSchedule != undefined){
-    p2d3 = canPronouns[0] + " would prefer to work a schedule of " + canPrefSchedule;
+    p2d3 = canPronouns[0] + " would prefer to work a schedule of " + canPrefSchedule + ". ";
   }
   else{
     p2d3 = "";
@@ -643,7 +695,7 @@ submitButton.addEventListener("click", function(){
   else{
     canLanguagesString = inputToString(canLanguages);
     canLanguagesString = canLanguagesString.replace(/or/, "and");
-    p2f = canPronouns[0] + " speaks " + canLanguagesString + ". "
+    p2f = "In addition to English, " + canPronouns[1] + " speaks " + canLanguagesString + ". "
   }
 
   //determines p3a
@@ -653,7 +705,7 @@ submitButton.addEventListener("click", function(){
   }
   else{
     canPrefStatesList = arrayToString(canPrefStates);
-    if(canPrefStatesList == "open"){
+    if(canPrefStatesList == "Open-US"){
       p3a = "Geographically, " + canFormalName + "is interested in opportunities in nationwide. ";
     }
     else{
@@ -703,7 +755,7 @@ submitButton.addEventListener("click", function(){
         p3d = p3d + ", " + canSigOtherName;
       }
       if(canSigOtherCareer != undefined){
-        p3d = p3d + ", who will be looking for " + canSigOtherCareer + " opportunities. ";
+        p3d = p3d + ", who will be looking for " + canSigOtherCareer + " opportunities";
       }
       p3d = p3d + ". ";
     }
