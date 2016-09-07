@@ -608,9 +608,9 @@ submitButton.addEventListener("click", function(){
     }
   }
   else{
-    p2b1 = canPronouns[0] + " is open to a " + canPrefGroupTypeString;
+    p2b1 = canPronouns[0] + " is open to a " + canPrefGroupTypeString + " and ";
     if(canPrefGroupSize == undefined && canPrefGroupSizeNumber == undefined){
-      p2b2 = canPronouns[0] + " is flexible in terms of Group size. ";
+      p2b2 = canPronouns[1] + " is flexible in terms of Group size. ";
     }
     else if(canPrefGroupSize == undefined){
       p2b2 = " and would prefer to be in a Group of " + canPrefGroupSizeNumber + ". ";
@@ -634,7 +634,7 @@ submitButton.addEventListener("click", function(){
       p2c = canFormalName + "enjoys all aspects of " + canSpecialty + " and is interested in: \n" + canProIntsString + "\n";
     }
     else{
-      p2c = canFormalName + " is particularly interested in: \n" + canSpecialty + "\n" + canProIntsString + "\n";
+      p2c = canFormalName + " is particularly interested in: \n \u2022 " + canSpecialty + "\n" + canProIntsString + "\n";
     }
   }
 
@@ -739,7 +739,7 @@ submitButton.addEventListener("click", function(){
       p3b = "";
       if(canReasonsForGeoInt != undefined){
         canReasonsForGeoIntString = inputToString(canReasonsForGeoInt);
-        canReasonsForGeoIntString = canReasonsForGeoIntString.replace(/or/, "and");
+        canReasonsForGeoIntString = canReasonsForGeoIntString.replace(/\or\b/, "and");
         p3c = canFormalName + "is interested in these states because " + canReasonsForGeoIntString + ". ";
       }
       else{
