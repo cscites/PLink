@@ -739,7 +739,7 @@ submitButton.addEventListener("click", function(){
       p3b = "";
       if(canReasonsForGeoInt != undefined){
         canReasonsForGeoIntString = inputToString(canReasonsForGeoInt);
-        canReasonsForGeoIntString = canReasonsForGeoIntString.replace(/\or\b/, "and");
+        canReasonsForGeoIntString = canReasonsForGeoIntString.replace(/\bor\b/, "and");
         p3c = canFormalName + "is interested in these states because " + canReasonsForGeoIntString + ". ";
       }
       else{
