@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ID Template</title>
+    <link rel="stylesheet" href="template.css" media="screen" title="no title" charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  </head>
+  <body id="body">
+    <div class="container">
+      <!--Name and CV#-->
+      <div class="col-md-3 col-xs-12 col-md-offset-1 pane" id="name">
+        <div class="col-xs-12">
+          First Name:
+        </div>
+        <div class="col-md-12">
+          <input type="text" id="firstName" name="firstName">
+        </div>
+        <div class="col-md-12">
+          Last Name:
+        </div>
+        <div class="col-md-12">
+          <input type="text" id="lastName" name="lastName">
+        </div>
+        <div class="col-md-12">
+          Web CV#:
+        </div>
+        <div class="col-md-12">
+          <input type="text" id="webCV" name="cv">
+        </div>
+      </div>
+      <!--Gender-->
+      <div class="col-md-3 col-xs-12 pane" id="gender">
+        <div class="col-xs-12">
+          <h4>Gender:</h4>
+        </div>
+        <form class="gender" action="index.html" method="post">
+          <div class="col-md-12">
+            <input type="radio" name="gender" value="Male">Male
+          </div>
+          <div class="col-md-12">
+            <input type="radio" name="gender" value="Female">Female
+          </div>
+        </form>
+      </div>
+      <!--specialty-->
+      <div class="col-md-3 col-xs-12 pane">
+        <div class="col-md-12">
+          Specialty:
+        </div>
+        <div class="col-md-12">
+          <!--<input type="text" id="specialty" name="specialty">-->
+          <select class="col-md-12" name="specialty" id="specialty">
+              <option value="Addictions Medicine" selected>Addictions Medicine</option>
+              <option value="Administration - Management" selected>Administration - Management</option>
+              <option value="Allergy and Immunology" selected>Allergy and Immunology</option>
+              <option value="Alternative Medicine" selected>Alternative Medicine</option>
+              <option value="Anesthesiology" selected>Anesthesiology</option>
+              <option value="Anesthesiology - Neurocritical Care" selected>Anesthesiology - Neurocritical Care</option>
+              <option value="Autonomic Disorders" selected>Autonomic Disorders</option>
+              <option value="Bariatrics" selected>Bariatrics</option>
+              <option value="Behavioral Neurology and Neuropsychiatry" selected>Behavioral Neurology and Neuropsychiatry</option>
+              <option value="Biostatistics" selected>Biostatistics - PhD</option>
+              <option value="Cardiac Surgery – Cardiovascular Surgery" selected>Cardiac Surgery – Cardiovascular Surgery</option>
+              <option value="Cardio-Thoracic Surgery" selected>Cardio-Thoracic Surgery</option>
+              <option value="Cardio-Thoracic Surgery - Transplant" selected>Cardio-Thoracic Surgery - Transplant</option>
+              <option value="Cardiology" selected>Cardiology</option>
+              <option value="Cardiology - Electrophysiology" selected>Cardiology - Electrophysiology</option>
+              <option value="Cardiology - Interventional" selected>Cardiology - Interventional</option>
+              <option value="Cardiology - Invasive" selected>Cardiology - Invasive</option>
+              <option value="Cardiology - Non-Invasive" selected>Cardiology - Non-Invasive</option>
+              <option value="Colon and Rectal Surgery" selected>Colon and Rectal Surgery</option>
+              <option value="Critical Care - Intensivist" selected>Critical Care - Intensivist</option>
+              <option value="Dental Public Health" selected>Dental Public Health</option>
+              <option value="Dermatology" selected>Dermatology</option>
+              <option value="Dermatopathology" selected>Dermatopathology</option>
+              <option value="Emergency Medicine" selected>Emergency Medicine</option>
+              <option value="Emergency Medicine - Neurocritical Care" selected>Emergency Medicine - Neurocritical Care</option>
+              <option value="Endocrinology" selected>Endocrinology</option>
+              <option value="Endocrinology - Reproductive" selected>Endocrinology - Reproductive</option>
+              <option value="Endodontics" selected>Endodontics</option>
+              <option value="Family Medicine" selected>Family Medicine</option>
+              <option value="Family Medicine - OB" selected>Family Medicine - OB</option>
+              <option value="Family Medicine - Sports Medicine" selected>Family Medicine - Sports Medicine</option>
+              <option value="Flight Surgery - Aerospace Medicine" selected>Flight Surgery - Aerospace Medicine</option>
+              <option value="Gastroenterology" selected>Gastroenterology</option>
+              <option value="General Practice" selected>General Practice</option>
+              <option value="General Surgery" selected>General Surgery</option>
+              <option value="General Surgery - Breast Surgery" selected>General Surgery - Breast Surgery</option>
+              <option value="Genetics" selected>Genetics</option>
+              <option value="Geriatric Medicine" selected>Geriatric Medicine</option>
+              <option value="Gynecology" selected>Gynecology</option>
+              <option value="Gynecology - Oncology" selected>Gynecology - Oncology</option>
+              <option value="Gynecology - Urogynecology" selected>Gynecology - Urogynecology</option>
+              <option value="Head and Neck Surgery" selected>Head and Neck Surgery</option>
+              <option value="Headache Medicine" selected>Headache Medicine</option>
+              <option value="Hematology" selected>Hematology</option>
+              <option value="Hematology and Oncology" selected>Hematology and Oncology</option>
+              <option value="Hepatology" selected>Hepatology</option>
+              <option value="Hospice" selected>Hospice</option>
+              <option value="Hospitalist" selected>Hospitalist</option>
+              <option value="Hyperbaric Medicine" selected>Hyperbaric Medicine</option>
+              <option value="Infectious Disease" selected>Infectious Disease</option>
+              <option value="Integrative Medicine" selected>Integrative Medicine</option>
+              <option value="Internal Medicine" selected>Internal Medicine</option>
+              <option value="Internal Medicine - Addictions" selected>Internal Medicine - Addictions</option>
+              <option value="Internal Medicine - Neurocritical Care" selected>Internal Medicine - Neurocritical Care</option>
+              <option value="Internal Medicine-Medical Oncology-Neuro-Oncology" selected>Internal Medicine-Medical Oncology-Neuro-Oncology</option>
+              <option value="Maternal-Fetal Medicine" selected>Maternal-Fetal Medicine</option>
+              <option value="Med-Peds" selected>Med-Peds</option>
+              <option value="Med-Psych" selected>Med-Psych</option>
+              <option value="Med-Surg" selected>Med-Surg</option>
+              <option value="Medical Informatics" selected>Medical Informatics</option>
+              <option value="Medical Microbiology" selected>Medical Microbiology</option>
+              <option value="Neonatology" selected>Neonatology</option>
+              <option value="Nephrology" selected>Nephrology</option>
+              <option value="Neurological Surgery" selected>Neurological Surgery</option>
+              <option value="Neurological Surgery - Neuro-Oncology" selected>Neurological Surgery - Neuro-Oncology</option>
+              <option value="Neurological Surgery - Neurocritical Care" selected>Neurological Surgery - Neurocritical Care</option>
+              <option value="Neurological Surgery - Neuroendovascular" selected>Neurological Surgery - Neuroendovascular</option>
+              <option value="Neurology" selected>Neurology</option>
+              <option value="Neurology - Child - Neuroimaging" selected>Neurology - Child - Neuroimaging</option>
+              <option value="Neurology - Geriatric" selected>Neurology - Geriatric</option>
+              <option value="Neurology - Neuro-Oncology" selected>Neurology - Neuro-Oncology</option>
+              <option value="Neurology - Neurocritical Care" selected>Neurology - Neurocritical Care</option>
+              <option value="Neurology - Neuroendovascular" selected>Neurology - Neuroendovascular</option>
+              <option value="Neurology - Neuroimaging" selected>Neurology - Neuroimaging</option>
+              <option value="Neurology - Vascular" selected>Neurology - Vascular</option>
+              <option value="Neuropsychology" selected>Neuropsychology</option>
+              <option value="Nuclear Medicine" selected>Nuclear Medicine</option>
+              <option value="Obstetrics and Gynecology" selected>Obstetrics and Gynecology</option>
+              <option value="Obstetrics and Gynecology - OB Hospitalist" selected>Obstetrics and Gynecology - OB Hospitalist</option>
+              <option value="Occupational Medicine" selected>Occupational Medicine</option>
+              <option value="Oncology" selected>Oncology</option>
+              <option value="Oncology - Breast" selected>Oncology - Breast</option>
+              <option value="Oncology - Gynecological" selected>Oncology - Gynecological</option>
+              <option value="Oncology - Medical" selected>Oncology - Medical</option>
+              <option value="Oncology - Surgical" selected>Oncology - Surgical</option>
+              <option value="Oncology - Urology" selected>Oncology - Urology</option>
+              <option value="Ophthalmology" selected>Ophthalmology</option>
+              <option value="Ophthalmology - Retinal Surgery" selected>Ophthalmology - Retinal Surgery</option>
+              <option value="Oral and Maxillofacial Pathology" selected>Oral and Maxillofacial Pathology</option>
+              <option value="Oral and Maxillofacial Radiology" selected>Oral and Maxillofacial Radiology</option>
+              <option value="Oral and Maxillofacial Surgery" selected>Oral and Maxillofacial Surgery</option>
+              <option value="Oral and Maxillofacial Surgery" selected>Oral and Maxillofacial Surgery</option>
+              <option value="Orthodontics and Dentofacial Orthopedics" selected>Orthodontics and Dentofacial Orthopedics</option>
+              <option value="Orthopaedic Surgery" selected>Orthopaedic Surgery</option>
+              <option value="Orthopaedic Surgery - Adult Reconstructive Surgery" selected>Orthopaedic Surgery - Adult Reconstructive Surgery</option>
+              <option value="Orthopaedic Surgery - Foot and Ankle" selected>Orthopaedic Surgery - Foot and Ankle</option>
+              <option value="Orthopaedic Surgery - Hand Surgery" selected>Orthopaedic Surgery - Hand Surgery</option>
+              <option value="Orthopaedic Surgery - Shoulder" selected>Orthopaedic Surgery - Shoulder</option>
+              <option value="Orthopaedic Surgery - Spine" selected>Orthopaedic Surgery - Spine</option>
+              <option value="Orthopaedic Surgery - Sports Medicine" selected>Orthopaedic Surgery - Sports Medicine</option>
+              <option value="Orthopaedic Surgery - Trauma" selected>Orthopaedic Surgery - Trauma</option>
+              <option value="Otolaryngology" selected>Otolaryngology</option>
+              <option value="Otolaryngology - Neurotology" selected>Otolaryngology - Neurotology</option>
+              <option value="Otolaryngology - Otologist" selected>Otolaryngology - Otologist</option>
+              <option value="Pain Medicine" selected>Pain Medicine</option>
+              <option value="Palliative Care" selected>Palliative Care</option>
+              <option value="Pathology" selected>Pathology</option>
+              <option value="Pediatric Dentistry" selected>Pediatric Dentistry</option>
+              <option value="Pediatrics" selected>Pediatrics</option>
+              <option value="Pediatrics - Adolescent Med" selected>Pediatrics - Adolescent Med</option>
+              <option value="Pediatrics - Allergy and Immunology" selected>Pediatrics - Allergy and Immunology</option>
+              <option value="Pediatrics - Anesthesiology" selected>Pediatrics - Anesthesiology</option>
+              <option value="Pediatrics - Bone Marrow Transplant" selected>Pediatrics - Bone Marrow Transplant</option>
+              <option value="Pediatrics - Cardiology" selected>Pediatrics - Cardiology</option>
+              <option value="Pediatrics - Child Abuse and Neglect" selected>Pediatrics - Child Abuse and Neglect</option>
+              <option value="Pediatrics - Critical Care" selected>Pediatrics - Critical Care</option>
+              <option value="Pediatrics - Dermatology" selected>Pediatrics - Dermatology</option>
+              <option value="Pediatrics - Developmental-Behavioral" selected>Pediatrics - Developmental-Behavioral</option>
+              <option value="Pediatrics - Emergency Medicine" selected>Pediatrics - Emergency Medicine</option>
+              <option value="Pediatrics - Endocrinology" selected>Pediatrics - Endocrinology</option>
+              <option value="Pediatrics - Gastroenterology" selected>Pediatrics - Gastroenterology</option>
+              <option value="Pediatrics - Genetics" selected>Pediatrics - Genetics</option>
+              <option value="Pediatrics - Hematology Oncology" selected>Pediatrics - Hematology Oncology</option>
+              <option value="Pediatrics - Hospitalist" selected>Pediatrics - Hospitalist</option>
+              <option value="Pediatrics - Infectious Disease" selected>Pediatrics - Infectious Disease</option>
+              <option value="Pediatrics - Intensivist" selected>Pediatrics - Intensivist</option>
+              <option value="Pediatrics - Nephrology" selected>Pediatrics - Nephrology</option>
+              <option value="Pediatrics - Neurocritical Care" selected>Pediatrics - Neurocritical Care</option>
+              <option value="Pediatrics - Neurology" selected>Pediatrics - Neurology</option>
+              <option value="Pediatrics - Neurosurgery" selected>Pediatrics - Neurosurgery</option>
+              <option value="Pediatrics - Ophthalmology" selected>Pediatrics - Ophthalmology</option>
+              <option value="Pediatrics - Orthopaedics" selected>Pediatrics - Orthopaedics</option>
+              <option value="Pediatrics - Otolaryngology" selected>Pediatrics - Otolaryngology</option>
+              <option value="Pediatrics - Pediatric HemOnc - Neuro-Oncology" selected>Pediatrics - Pediatric HemOnc - Neuro-Oncology</option>
+              <option value="Pediatrics - Physical Medicine and Rehab" selected>Pediatrics - Physical Medicine and Rehab</option>
+              <option value="Pediatrics - Plastic Surgery" selected>Pediatrics - Plastic Surgery</option>
+              <option value="Pediatrics - Pulmonology" selected>Pediatrics - Pulmonology</option>
+              <option value="Pediatrics - Radiology" selected>Pediatrics - Radiology</option>
+              <option value="Pediatrics - Rheumatology" selected>Pediatrics - Rheumatology</option>
+              <option value="Pediatrics - Surgery" selected>Pediatrics - Surgery</option>
+              <option value="Pediatrics - Urgent Care" selected>Pediatrics - Urgent Care</option>
+              <option value="Pediatrics - Urology" selected>Pediatrics - Urology</option>
+              <option value="Pediatrics Pathology" selected>Pediatrics Pathology</option>
+              <option value="Pediatrics Transplant" selected>Pediatrics Transplant</option>
+              <option value="Perinatal Medicine" selected>Perinatal Medicine</option>
+              <option value="Periodontics" selected>Periodontics</option>
+              <option value="Pharmaceutical Industry" selected>Pharmaceutical Industry</option>
+              <option value="Phlebology" selected>Phlebology</option>
+              <option value="Physical Medicine and Rehab" selected>Physical Medicine and Rehab</option>
+              <option value="Plastic Surgery" selected>Plastic Surgery</option>
+              <option value="Podiatry" selected>Podiatry</option>
+              <option value="Preventive Medicine" selected>Preventive Medicine</option>
+              <option value="Prosthodontics" selected>Prosthodontics</option>
+              <option value="Psychiatry" selected>Psychiatry</option>
+              <option value="Psychiatry - Child" selected>Psychiatry - Child</option>
+              <option value="Psychiatry - Geriatric" selected>Psychiatry - Geriatric</option>
+              <option value="Psychology" selected>Psychology</option>
+              <option value="Psychology - Child" selected>Psychology - Child</option>
+              <option value="Pulmonary Disease" selected>Pulmonary Disease</option>
+              <option value="Pulmonary Disease - Critical Care" selected>Pulmonary Disease - Critical Care</option>
+              <option value="Radiation Oncology" selected>Radiation Oncology</option>
+              <option value="Radiation Oncology - Neuro-Oncology" selected>Radiation Oncology - Neuro-Oncology</option>
+              <option value="Radiology" selected>Radiology</option>
+              <option value="Radiology - Interventional" selected>Radiology - Interventional</option>
+              <option value="Radiology - Neuro-Interventional" selected>Radiology - Neuro-Interventional</option>
+              <option value="Radiology - Neuroendovascular" selected>Radiology - Neuroendovascular</option>
+              <option value="Radiology - Nuclear" selected>Radiology - Nuclear</option>
+              <option value="Radiology - Tele" selected>Radiology - Tele</option>
+              <option value="Radiology - Women's Imager" selected>Radiology - Women's Imager</option>
+              <option value="Research" selected>Research</option>
+              <option value="Rheumatology" selected>Rheumatology</option>
+              <option value="Sleep Medicine" selected>Sleep Medicine</option>
+              <option value="Sports Medicine" selected>Sports Medicine</option>
+              <option value="Surgery - Neurocritical Care" selected>Surgery - Neurocritical Care</option>
+              <option value="Surgical Critical Care" selected>Surgical Critical Care</option>
+              <option value="Technology" selected>Technology</option>
+              <option value="Telemedicine" selected>Telemedicine</option>
+              <option value="Thoracic Surgery" selected>Thoracic Surgery</option>
+              <option value="Toxicology" selected>Toxicology</option>
+              <option value="Transfusion Medicine" selected>Transfusion Medicine</option>
+              <option value="Transplant Surgery" selected>Transplant Surgery</option>
+              <option value="Trauma Surgery" selected>Trauma Surgery</option>
+              <option value="Ultrasound" selected>Ultrasound</option>
+              <option value="Urgent Care" selected>Urgent Care</option>
+              <option value="Urology" selected>Urology</option>
+              <option value="Urology - Oncology" selected>Urology - Oncology</option>
+              <option value="Vascular Medicine" selected>Vascular Medicine</option>
+              <option value="Vascular Surgery" selected>Vascular Surgery</option>
+              <option value="Womens Health" selected>Womens Health</option>
+              <option value="Wound Care" selected>Wound Care</option>
+          </select>
+        </div>
+      </div>
+      <!--profession-->
+      <div class="col-md-3 col-xs-12 col-md-offset-1 pane">
+        <div class="col-xs-12">
+          <h4>Profession:</h4>
+        </div>
+        <form class="profession" action="">
+          <div class="col-md-12">
+            <input type="radio" id="s1" name="profession" value="Physician">Physician
+          </div>
+          <div class="col-md-12">
+            <input type="radio" id="s2" name="profession" value="Nurse Practitioner">NP
+          </div>
+          <div class="col-md-12">
+            <input type="radio" id="s3" name="profession" value="Physician Assistant">PA
+          </div>
+        </form>
+      </div>
+      <!--Professional Status-->
+      <div class="col-md-3 col-xs-12 pane" id="proStatus">
+        <div class="col-md-12">
+          <h4>Professional Status:</h4>
+        </div>
+        <form class="proStatus" action="">
+          <div class="col-md-6 col-xs-12">
+            <input type="radio" name="proStatus" value="Resident">Resident
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <input type="radio" name="proStatus" value="Fellow">Fellow
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <input type="radio" name="proStatus" value="Private Practice">Private Practice
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <input type="radio" name="proStatus" value="Military">Military
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <input type="radio" name="proStatus" value="Graduate School">Grad School
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <input type="radio" name="proStatus" value="Retired">Retired
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <input type="radio" name="proStatus" value="Other">Other
+          </div>
+        </form>
+      </div>
+      <!--board status-->
+      <div class="col-md-3 col-xs-12 pane" id="boardStatus">
+        <div class="col-md-12">
+          <h4>Board Status:</h4>
+        </div>
+        <div class="col-md-12">
+          <form class="boardStatus" action="index.html" method="post">
+            <input type="radio" name="board" value="Board Certified">Board Certified<br>
+            <input type="radio" name="board" value="Board Eligible">Board Eligible<br>
+            <input type="radio" name="board" value="N/A">N/A<br>
+          </form>
+        </div>
+      </div>
+      <!--Availability-->
+      <div class="col-md-3 col-xs-12 col-md-offset-1 pane" id="availability">
+        <div class="col-md-12">
+          Availability Month:
+        </div>
+        <div class="col-md-12">
+          <!--<input type="text" id="availabilityMonth" name="availability">-->
+          <select class="col-md-12" id="availabilityMonth">
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+          </select>
+        </div>
+        <div class="col-md-12">
+          Availability Year:
+        </div>
+        <div class="col-md-12">
+          <input type="text" id="availabilityYear" name="availability">
+        </div>
+      </div>
+      <!--Training Completion-->
+      <div class="col-md-3 col-xs-12 pane" id="trainingCompletion">
+        <div class="col-md-12">
+          <h4>If Res/Fell/Mil/Grad School:</h4>
+        </div>
+        <div class="col-md-12">
+          Completion Month:
+        </div>
+        <div class="col-md-12">
+          <!--<input type="text" id="completionMonth" name="completion">-->
+          <select class="col-md-12" id="completionMonth" name="completion">
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+          </select>
+        </div>
+        <div class="col-md-12">
+          Completion Year:
+        </div>
+        <div class="col-md-12">
+          <input type="text" id="completionYear" name="completion">
+        </div>
+      </div>
+      <div class="col-md-3 col-xs-12 pane">
+        <div class="col-md-12">
+          <h4>Visa Status:</h4>
+        </div>
+        <div class="col-md-12">
+          <form class="boardStatus" action="index.html" method="post">
+            <input type="radio" name="visa" value="US Citizen">US Citizen<br>
+            <input type="radio" name="visa" value="Permanent US Visa">Permanent US Visa<br>
+            <input type="radio" name="visa" value="J1 Visa">J1<br>
+            <input type="radio" name="visa" value="H1b Visa">H1b<br>
+            <input type="radio" name="visa" value="O1 Visa">O1<br>
+
+          </form>
+        </div>
+      </div>
+      <!--licenses-->
+      <div class="col-md-6 col-xs-12 col-md-offset-3" id="licenses">
+        <div class="col-md-12">
+          <h4>Licenses:</h4>
+        </div>
+        <form class="licenses" action="index.html" method="post">
+          <div class="col-xs-6">
+            <div class="col-md-6 col-xs-12">
+              <input type="checkbox" name="stateLic" value="AL">AL<br>
+              <input type="checkbox" name="stateLic" value="AK">AK<br>
+              <input type="checkbox" name="stateLic" value="AZ">AZ<br>
+              <input type="checkbox" name="stateLic" value="AR">AR<br>
+              <input type="checkbox" name="stateLic" value="CA">CA<br>
+              <input type="checkbox" name="stateLic" value="CO">CO<br>
+              <input type="checkbox" name="stateLic" value="CT">CT<br>
+              <input type="checkbox" name="stateLic" value="DC">DC<br>
+              <input type="checkbox" name="stateLic" value="DE">DE<br>
+              <input type="checkbox" name="stateLic" value="FL">FL<br>
+              <input type="checkbox" name="stateLic" value="GA">GA<br>
+              <input type="checkbox" name="stateLic" value="HI">HI<br>
+              <input type="checkbox" name="stateLic" value="ID">ID<br>
+            </div>
+            <div class="col-md-6 col-xs-12">
+              <input type="checkbox" name="stateLic" value="IL">IL<br>
+              <input type="checkbox" name="stateLic" value="IN">IN<br>
+              <input type="checkbox" name="stateLic" value="IA">IA<br>
+              <input type="checkbox" name="stateLic" value="KS">KS<br>
+              <input type="checkbox" name="stateLic" value="KY">KY<br>
+              <input type="checkbox" name="stateLic" value="LA">LA<br>
+              <input type="checkbox" name="stateLic" value="ME">ME<br>
+              <input type="checkbox" name="stateLic" value="MD">MD<br>
+              <input type="checkbox" name="stateLic" value="MA">MA<br>
+              <input type="checkbox" name="stateLic" value="MI">MI<br>
+              <input type="checkbox" name="stateLic" value="MN">MN<br>
+              <input type="checkbox" name="stateLic" value="MS">MS<br>
+              <input type="checkbox" name="stateLic" value="MO">MO<br>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="col-md-6 col-xs-12">
+              <input type="checkbox" name="stateLic" value="MT">MT<br>
+              <input type="checkbox" name="stateLic" value="NE">NE<br>
+              <input type="checkbox" name="stateLic" value="NV">NV<br>
+              <input type="checkbox" name="stateLic" value="NH">NH<br>
+              <input type="checkbox" name="stateLic" value="NJ">NJ<br>
+              <input type="checkbox" name="stateLic" value="NM">NM<br>
+              <input type="checkbox" name="stateLic" value="NY">NY<br>
+              <input type="checkbox" name="stateLic" value="NC">NC<br>
+              <input type="checkbox" name="stateLic" value="ND">ND<br>
+              <input type="checkbox" name="stateLic" value="OH">OH<br>
+              <input type="checkbox" name="stateLic" value="OK">OK<br>
+              <input type="checkbox" name="stateLic" value="OR">OR<br>
+              <input type="checkbox" name="stateLic" value="PA">PA<br>
+            </div>
+            <div class="col-md-6 col-xs-12">
+              <input type="checkbox" name="stateLic" value="PR">PR<br>
+              <input type="checkbox" name="stateLic" value="RI">RI<br>
+              <input type="checkbox" name="stateLic" value="SC">SC<br>
+              <input type="checkbox" name="stateLic" value="SD">SD<br>
+              <input type="checkbox" name="stateLic" value="TN">TN<br>
+              <input type="checkbox" name="stateLic" value="TX">TX<br>
+              <input type="checkbox" name="stateLic" value="UT">UT<br>
+              <input type="checkbox" name="stateLic" value="VT">VT<br>
+              <input type="checkbox" name="stateLic" value="VA">VA<br>
+              <input type="checkbox" name="stateLic" value="WA">WA<br>
+              <input type="checkbox" name="stateLic" value="WV">WV<br>
+              <input type="checkbox" name="stateLic" value="WI">WI<br>
+              <input type="checkbox" name="stateLic" value="WY">WY<br>
+            </div>
+          </div>
+        </form>
+      </div>
+      <hr class="col-md-12 divider">
+      <!--Preferred Practice Type-->
+      <div class="col-md-3 col-xs-12 col-md-offset-1 pane" id="practiceType">
+        <div class="col-md-12">
+          <h4>Practice Type:</h4>
+        </div>
+        <div class="col-md-12">
+          <form class="practiceType" action="index.html" method="post">
+            <input type="checkbox" name="practiceType" value="Hospital Employed">Hospital Employed<br>
+            <input type="checkbox" name="practiceType" value="Private Practice">Private Practice<br>
+            <input type="checkbox" name="practiceType" value="Academic">Academic<br>
+          </form>
+        </div>
+      </div>
+      <!--Preferred Group Type-->
+      <div class="col-md-3 col-xs-12 pane" id="groupType">
+        <div class="col-md-12">
+          <h4>Goup Type:</h4>
+        </div>
+        <div class="col-md-12">
+          <form class="practiceType" action="index.html" method="post">
+            <input type="checkbox" name="groupType" value="Single Specialty Group">Single Specialty Group<br>
+            <input type="checkbox" name="groupType" value="Multi-Specialty Group">Multi-Specialty Group<br>
+          </form>
+        </div>
+      </div>
+    <!--Group Size-->
+    <div class="col-md-3 col-xs-12 pane" id="groupSize">
+      <div class="col-md-12">
+        <h4>Preferred Group Size:</h4>
+      </div>
+      <div class="col-md-12">
+        estimate:
+        <input type="text" name="groupSize" id = "prefGroupSize" placeholder="medium" value="">
+        or number:
+        <input type="number" name="groupSize" id = "prefGroupSizeNumber"  value="">
+
+      </div>
+    </div>
+    <!--Areas of Pro Interest-->
+    <div class="col-md-9 col-md-offset-2" id="proInterests">
+      <div class="col-md-12">
+        <h4>Areas of Professional Interest/Procedures:</h4>
+      </div>
+      <div class="col-md-12" id="proIntInput">
+        <textarea name="proInterest" id = "profIntInput" placeholder="(please separate interests using ';') Dr. <name> is interested in:... " rows="8" cols="90%"></textarea>
+      </div>
+    </div>
+    <!--hours-->
+    <div class="col-md-3 col-xs-12 col-md-offset-1 pane" id="hours">
+      <div class="col-md-12">
+        <h4>Hours:</h4>
+      </div>
+      <div class="col-md-12">
+        <form class="hours" action="index.html" method="post">
+          <input type="checkbox" name="hoursType" value="Full-Time">Full-Time<br>
+          <input type="checkbox" name="hoursType" value="Part-Time">Part-Time<br>
+          <input type="checkbox" name="hoursType" value="Locum-Tenens">Locum-Tenens<br>
+          <input type="checkbox" name="hoursType" value="Per Diem">Per Diem<br>
+          <input type="checkbox" name="hoursType" value="Temporary">Temporary<br>
+        </form>
+      </div>
+    </div>
+    <!--APs-->
+    <div class="col-md-3 col-xs-12 pane" id="advPrac">
+      <div class="col-md-12">
+        <h4>Advanced Practitioners:</h4>
+      </div>
+      <div class="col-md-12">
+        <form class="advPrac" action="index.html" method="post">
+          <input type="radio" name="advPrac" value="yes">yes<br>
+          <input type="radio" name="advPrac" value="no">no<br>
+        </form>
+      </div>
+    </div>
+    <!--EMRs-->
+    <div class="col-md-3 col-xs-12 pane" id="emrs">
+      <div class="col-md-12">
+        <h4>EMRs:</h4>
+      </div>
+      <div class="col-md-12">
+        <textarea name="emrs" id= "knownEMRs" placeholder="Epic; Cerner... " rows="5" cols="30"></textarea>
+      </div>
+    </div>
+    <!--benefits-->
+    <div class="col-md-3 col-xs-12 col-md-offset-1 pane" id="benefits">
+      <div class="col-md-12">
+        <h4>Benefits:</h4>
+      </div>
+        <form class="benefits" action="index.html" method="post">
+          <div class="col-md-6">
+            <input type="checkbox" name="benefits" value="Loan Repayment">Loan Repayment<br>
+            <input type="checkbox" name="benefits" value="Relocation Assistance">Relocation Assistance<br>
+            <input type="checkbox" name="benefits" value="Sign-on Bonus">Sign-on Bonus<br>
+          </div>
+          <div class="col-md-6">
+            <input type="checkbox" name="benefits" value="Tail Coverage">Tail Coverage<br>
+            <input type="checkbox" name="benefits" value="Malpractice Insurance">Malpractice Insurance<br>
+            <input type="checkbox" name="benefits" value="Health Insurance">Health Insurance<br>
+          </div>
+        </form>
+    </div>
+    <!--prefSchedule-->
+    <div class="col-md-3 col-xs-12 pane">
+      <div class="col-md-12">
+        <h4>Preferred Schedule:</h4>
+      </div>
+      <div class="col-md-12">
+        <textarea name="languages" id = "prefSchedule" placeholder="They would prefer to work a schedule of..." rows="5" cols="30"></textarea>
+      </div>
+    </div>
+    <!--Languages-->
+    <div class="col-md-3 col-xs-12 pane" id="languages">
+      <div class="col-md-12">
+        <h4>Languages:</h4>
+      </div>
+      <div class="col-md-12">
+        <textarea name="languages" id = "spokenLanguages" placeholder="Basic Spanish; Fluent French..." rows="5" cols="30"></textarea>
+      </div>
+    </div>
+    <hr class="col-md-12 divider">
+    <!--Open to Reloction -->
+    <div class="col-xs-12 pane" id="advPrac">
+      <div class="col-md-12">
+        <h4>Open to relocation:</h4>
+      </div>
+      <div class="col-md-12">
+        <form class="relocate" action="index.html" method="post">
+          <input type="radio" name="relocation" value="yes">yes<br>
+          <input type="radio" name="relocation" value="no">no<br>
+        </form>
+      </div>
+      <div class="col-md-12">
+        <div class="col-md-12">
+          If no:
+        </div>
+        <div class="col-md-3">
+          <div class="col-md-12">
+            Current City:
+          </div>
+          <div class="col-md-12">
+            <input type="text" id="currentCity" value="">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="col-md-12">
+            Current State:
+          </div>
+          <div class="col-md-12">
+            <input type="text" id="currentState" value="">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="col-md-12">
+            Current Zip Code:
+          </div>
+          <div class="col-md-12">
+            <input type="text" id="currentZip" value="">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="col-md-12">
+            Maximum Commute:
+          </div>
+          <div class="col-md-12">
+            <input type="text" id="maximumCommute" placeholder="within..." value="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Preferred States-->
+    <div class="col-md-6 col-xs-12 col-md-offset-3" id="prefStates">
+      <div class="col-md-12">
+        <h4>Preferred States:</h4>
+      </div>
+      <form class="prefStates" action="index.html" method="post">
+        <div class="col-xs-6">
+          <div class="col-md-6 col-xs-12">
+            <input type="checkbox" name="prefStates" value="AL">AL<br>
+            <input type="checkbox" name="prefStates" value="AK">AK<br>
+            <input type="checkbox" name="prefStates" value="AZ">AZ<br>
+            <input type="checkbox" name="prefStates" value="AR">AR<br>
+            <input type="checkbox" name="prefStates" value="CA">CA<br>
+            <input type="checkbox" name="prefStates" value="CO">CO<br>
+            <input type="checkbox" name="prefStates" value="CT">CT<br>
+            <input type="checkbox" name="prefStates" value="DC">DC<br>
+            <input type="checkbox" name="prefStates" value="DE">DE<br>
+            <input type="checkbox" name="prefStates" value="FL">FL<br>
+            <input type="checkbox" name="prefStates" value="GA">GA<br>
+            <input type="checkbox" name="prefStates" value="HI">HI<br>
+            <input type="checkbox" name="prefStates" value="ID">ID<br>
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <input type="checkbox" name="prefStates" value="IL">IL<br>
+            <input type="checkbox" name="prefStates" value="IN">IN<br>
+            <input type="checkbox" name="prefStates" value="IA">IA<br>
+            <input type="checkbox" name="prefStates" value="KS">KS<br>
+            <input type="checkbox" name="prefStates" value="KY">KY<br>
+            <input type="checkbox" name="prefStates" value="LA">LA<br>
+            <input type="checkbox" name="prefStates" value="ME">ME<br>
+            <input type="checkbox" name="prefStates" value="MD">MD<br>
+            <input type="checkbox" name="prefStates" value="MA">MA<br>
+            <input type="checkbox" name="prefStates" value="MI">MI<br>
+            <input type="checkbox" name="prefStates" value="MN">MN<br>
+            <input type="checkbox" name="prefStates" value="MS">MS<br>
+            <input type="checkbox" name="prefStates" value="MO">MO<br>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="col-md-6 col-xs-12">
+            <input type="checkbox" name="prefStates" value="MT">MT<br>
+            <input type="checkbox" name="prefStates" value="NE">NE<br>
+            <input type="checkbox" name="prefStates" value="NV">NV<br>
+            <input type="checkbox" name="prefStates" value="NH">NH<br>
+            <input type="checkbox" name="prefStates" value="NJ">NJ<br>
+            <input type="checkbox" name="prefStates" value="NM">NM<br>
+            <input type="checkbox" name="prefStates" value="NY">NY<br>
+            <input type="checkbox" name="prefStates" value="NC">NC<br>
+            <input type="checkbox" name="prefStates" value="ND">ND<br>
+            <input type="checkbox" name="prefStates" value="OH">OH<br>
+            <input type="checkbox" name="prefStates" value="OK">OK<br>
+            <input type="checkbox" name="prefStates" value="OR">OR<br>
+            <input type="checkbox" name="prefStates" value="PA">PA<br>
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <input type="checkbox" name="prefStates" value="PR">PR<br>
+            <input type="checkbox" name="prefStates" value="RI">RI<br>
+            <input type="checkbox" name="prefStates" value="SC">SC<br>
+            <input type="checkbox" name="prefStates" value="SD">SD<br>
+            <input type="checkbox" name="prefStates" value="TN">TN<br>
+            <input type="checkbox" name="prefStates" value="TX">TX<br>
+            <input type="checkbox" name="prefStates" value="UT">UT<br>
+            <input type="checkbox" name="prefStates" value="VT">VT<br>
+            <input type="checkbox" name="prefStates" value="VA">VA<br>
+            <input type="checkbox" name="prefStates" value="WA">WA<br>
+            <input type="checkbox" name="prefStates" value="WV">WV<br>
+            <input type="checkbox" name="prefStates" value="WI">WI<br>
+            <input type="checkbox" name="prefStates" value="WY">WY<br>
+            <input type="checkbox" name="prefStates" value="Open-US">Open-US<br>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!--Specefic Geographic Interest-->
+    <div class="col-md-9 col-md-offset-2" id="specificGeoInt">
+      <div class="col-md-12">
+        <h4>Areas of Specific Geographic Interest:</h4>
+      </div>
+      <div class="col-md-12">
+        <textarea name="geoInt"  id="geoInt" placeholder="Houston,TX; Northeast, ID..." rows="4" cols="90%"></textarea>
+      </div>
+    </div>
+    <!--Reasons for Geographic Interest-->
+    <div class="col-md-9 col-md-offset-2" id="specificGeoInt">
+      <div class="col-md-12">
+        <h4>Reasons for Geographic Interest:</h4>
+      </div>
+      <div class="col-md-12">
+        <textarea name="reasons"  id="reasonsForGeoInt" placeholder="She are interested in these areas because: She has family there; good fishing in the area..." rows="4" cols="90%"></textarea>
+      </div>
+    </div>
+    <!--Significant Others-->
+    <div class="col-md-3 col-xs-12 col-md-offset-1 pane" id="sigOthers">
+      <div class="col-md-12">
+        <h4>Significant Others:</h4>
+      </div>
+      <div class="col-md-12">
+        <form class="sigOthers" action="index.html" method="post">
+          <input type="radio" name="sigOthers" value="Significant Other">Significant Other<br>
+          <input type="radio" name="sigOthers" value="Fiance">Fiance<br>
+          <input type="radio" name="sigOthers" value="Spouse">Spouse<br>
+          <input type="radio" name="sigOthers" value="N/A">N/A<br>
+        </form>
+      </div>
+    </div>
+    <!--Significant Other Name-->
+    <div class="col-md-3 col-xs-12 pane">
+      <div class="col-md-12">
+        <h4>Significant Other Name:</h4>
+      </div>
+      <div class="col-md-12">
+        <input type="text" name="sigOtherName" id="sigOtherName" value="">
+      </div>
+    </div>
+    <!--Significant Other Career-->
+    <div class="col-md-3 col-xs-12 pane">
+      <div class="col-md-12">
+        <h4>Significant Other Career:</h4>
+      </div>
+      <div class="col-md-12">
+        <input type="text" name="sigOtherCareer" id="sigOtherCareer" value="">
+      </div>
+    </div>
+    <!--Children-->
+    <div class="col-md-3 col-xs-12 col-md-offset-1 pane" id="children">
+      <div class="col-md-12">
+        <h4>Children:</h4>
+      </div>
+      <div class="col-md-12">
+        <form class="children" action="index.html" method="post">
+          <input type="radio" name="children" value="yes">yes<br>
+          <input type="radio" name="children" value="no">no<br>
+        </form>
+      </div>
+    </div>
+    <!--Children Names-->
+    <div class="col-md-3 col-xs-12 pane">
+      <div class="col-md-12">
+        <h4>Children's Names:</h4>
+      </div>
+      <div class="col-md-12">
+        <textarea name="childrenNames" id="childrenNames" placeholder="name; name 2; ..." rows="5" cols="30"></textarea>
+      </div>
+    </div>
+    <!--Children's Activities-->
+    <div class="col-md-3 col-xs-12 pane">
+      <div class="col-md-12">
+        <h4>Children's Activities:</h4>
+      </div>
+      <div class="col-md-12">
+        <textarea name="childrenActivities" id="childrenActivities" placeholder="involved in..." rows="5" cols="30"></textarea>
+      </div>
+    </div>
+    <!--Children Schools-->
+    <div class="col-md-3 col-xs-12 col-md-offset-1 pane" id="children">
+      <div class="col-md-12">
+        <h4>Children School Type:</h4>
+      </div>
+      <div class="col-md-12">
+        <form class="childrenSchoolType" action="index.html" method="post">
+          <input type="checkbox" name="childrenSchoolType" value="public">Public<br>
+          <input type="checkbox" name="childrenSchoolType" value="private">Private<br>
+          <input type="checkbox" name="childrenSchoolType" value="parochial">Parochial<br>
+          <input type="checkbox" name="childrenSchoolType" value="montessori">Montessori<br>
+          <input type="checkbox" name="childrenSchoolType" value="magnet">Magnet<br>
+        </form>
+      </div>
+    </div>
+    <!--Leisure Activities-->
+    <div class="col-md-3 col-xs-12 pane">
+      <div class="col-md-12">
+        <h4>Leisure Activities:</h4>
+      </div>
+      <div class="col-md-12">
+        <textarea name="leisureActivities" id="leisureActivities" placeholder="hking; running;..." rows="5" cols="30"></textarea>
+      </div>
+    </div>
+    <hr class="col-md-12 divider">
+    <!--Begun Interviewing-->
+    <div class="col-md-3 col-xs-12 col-md-offset-1 pane" id="interviewing">
+      <div class="col-md-12">
+        <h4>Begun Interviewing:</h4>
+      </div>
+      <div class="col-md-12">
+        <form class="children" action="index.html" method="post">
+          <input type="radio" name="interviewing" value="yes">yes<br>
+          <input type="radio" name="interviewing" value="no">no<br>
+        </form>
+      </div>
+    </div>
+    <!--Notice till Formal Interview-->
+    <div class="col-md-3 col-xs-12 pane">
+      <div class="col-md-12">
+        <h4>Notice till Formal Interview:</h4>
+      </div>
+      <div class="col-md-12">
+        <input type="text" name="noticeToInterview" id="noticeToInterview" placeholder="2 to 3 weeks" value="">
+      </div>
+    </div>
+    <!--Virtual Interview-->
+    <div class="col-md-3 col-xs-12 pane" id="virtualInterview">
+      <div class="col-md-12">
+        <h4>Virtual Interview:</h4>
+      </div>
+      <div class="col-md-12">
+        <form class="virtualInterview" action="index.html" method="post">
+          <input type="radio" name="virtualInterview" value="yes">yes<br>
+          <input type="radio" name="virtualInterview" value="no">no<br>
+        </form>
+        <div class="col-md-12">
+          Virtual Interview Method:
+        </div>
+        <div class="col-md-12">
+          <input type="text" id="virtualInterviewMethod" placeholder="Skype; FaceTime..." value="">
+        </div>
+      </div>
+    </div>
+    <!--Preferred Method of Contact-->
+    <div class="col-md-3 col-xs-12 col-md-offset-1 pane" id="prefMethOfContact">
+      <div class="col-md-12">
+        <h4>Preferred Method of Contact:</h4>
+      </div>
+      <div class="col-md-12">
+        <form class="prefMethOfContact" action="index.html" method="post">
+          <input type="checkbox" name="prefMethOfContact" value="phone">phone<br>
+          <input type="checkbox" name="prefMethOfContact" value="email">email<br>
+          <input type="checkbox" name="prefMethOfContact" value="text">text<br>
+        </form>
+      </div>
+    </div>
+    <!--CV up to Date-->
+    <div class="col-md-3 col-xs-12 pane" id="cvUpToDate">
+      <div class="col-md-12">
+        <h4>CV Up To Date:</h4>
+      </div>
+      <div class="col-md-12">
+        <form class="cvUpToDate" action="index.html" method="post">
+          <input type="radio" name="cvUpToDate" value="yes">yes<br>
+          <input type="radio" name="cvUpToDate" value="no">no<br>
+        </form>
+      </div>
+    </div>
+    <hr class="col-md-12 divider">
+    <div class="col-md-12">
+      <div class="col-md-6 col-xs-12">
+        <input type="button" id="submit" value="Submit">
+      </div>
+      <div class="col-md-6 col-xs-12">
+        <input type="button" id="reset" value="Reset">
+      </div>
+    </div>
+    <div class="col-md-12">
+      <textarea name="finalID" id="finalID" rows="40" cols="160"></textarea>
+    </div>
+
+
+
+      <script type="text/javascript" src="template.js"></script>
+    </div>
+    </body>
+</html>
