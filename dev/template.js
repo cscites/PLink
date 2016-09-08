@@ -91,6 +91,7 @@ var maximumCommute = document.getElementById("maximumCommute");
 var canMaximumCommute;
 var childrenSchoolType = document.getElementsByName("childrenSchoolType");
 var canChildrenSchoolType = [];
+var noticeToInterviewUnit;
 var canCVUpToDate;
 var canPronouns;
 var canProStatusDescrip;
@@ -106,6 +107,9 @@ function candidateSubmit(){
 
   //Determines canAvailabilityMonth
   canAvailabilityMonth = $("#availabilityMonth option:selected").val();
+
+  //Determines noticeToInterviewUnit
+  noticeToInterviewUnit = $("#noticeToInterviewUnit option:selected").val();
 
   //Determines canTrainingCompletionMonth
   canTrainingCompletionMonth = $("#completionMonth option:selected").val();
@@ -806,13 +810,19 @@ submitButton.addEventListener("click", function(){
   //determines p4a
   if(canInterviewing == "yes"){
     p4a = canFormalName + "has begun interviewing with employers and currently needs "
-          + canNoticeTillInterview + "\' notice prior to a formal interview to adjust "
+          + canNoticeTillInterview + " " + noticeToInterviewUnit + "\' notice prior to a formal interview to adjust "
           + canPronouns[3] + " schedule. ";
+          if(canNoticeTillInterview == 1){
+            p4a = p4a.replace(/s'/, "'s");
+          }
   }
   else{
     p4a = canFormalName + "is ready to begin interviewing with employers and currently needs "
-          + canNoticeTillInterview + "\'\ notice prior to a formal interview to adjust "
+          + canNoticeTillInterview + " " + noticeToInterviewUnit + "\'\ notice prior to a formal interview to adjust "
           + canPronouns[3] + " schedule. ";
+          if(canNoticeTillInterview == 1){
+            p4a = p4a.replace(/s'/, "'s");
+          }
   }
 
   //determines p4b
