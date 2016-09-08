@@ -521,7 +521,7 @@ submitButton.addEventListener("click", function(){
   }
   else if (canProStatus ==  "Graduate School") {
     if(canVisa == "US Citizen"){
-      p1b = canPronouns[0] + " is interested in " + canHoursString + " opportunities, beginning as early as " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
+      p1b = canPronouns[0] + " is interested in " + canHoursString + " " + canProfession + " opportunities, beginning as early as " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
     }
     else if (canVisa == "J1 Visa") {
       p1b = canPronouns[0] + " is interested in " + canHoursString + " opportunities, that can accomodate " + canPronouns[3] + " " + canVisa + ", beginning as early as " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
@@ -695,7 +695,7 @@ submitButton.addEventListener("click", function(){
   else{
     canLanguagesString = inputToString(canLanguages);
     canLanguagesString = canLanguagesString.replace(/or/, "and");
-    p2f = "In addition to English, " + canPronouns[1] + " speaks " + canLanguagesString + ". "
+    p2f = "In addition to English, " + canFormalName + "speaks " + canLanguagesString + ". "
   }
 
   //determines p3a
@@ -782,7 +782,7 @@ submitButton.addEventListener("click", function(){
     }
     if(canChildrenActivities != undefined){
       var canChildrenActivitiesString = inputToString(canChildrenActivities);
-      canChildrenActivitiesString = canChildrenActivitiesString.replace(/or/,"and");
+      canChildrenActivitiesString = canChildrenActivitiesString.replace(/\or\b/, "and");
       p3e = p3e + ", involved in " + canChildrenActivitiesString;
     }
     p3e = p3e + ", and will be looking for a safe, family friendly community"
