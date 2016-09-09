@@ -18,3 +18,8 @@
 #proIntInput{
   width: auto;
 }
+
+.dropdown-menu{
+  max-height: 500px;
+  overflow: scroll;
+}

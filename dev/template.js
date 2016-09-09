@@ -100,6 +100,55 @@ var canProStatusDescrip;
 var submitButton = document.getElementById("submit");
 var resetButton = document.getElementById("reset");
 var finalID = document.getElementById("finalID");
+
+var boardCertified = [];
+var boardEligible = [];
+
+$( '#boardCertified a' ).on( 'click', function( event ) {
+
+   var $target = $( event.currentTarget ),
+       val = $target.attr( 'data-value' ),
+       $inp = $target.find( 'input' ),
+       idx;
+
+   if ( ( idx = boardCertified.indexOf( val ) ) > -1 ) {
+      boardCertified.splice( idx, 1 );
+      setTimeout( function() { $inp.prop( 'checked', false ) }, 0);
+   } else {
+      boardCertified.push( val );
+      setTimeout( function() { $inp.prop( 'checked', true ) }, 0);
+   }
+
+   $( event.target ).blur();
+
+   console.log( boardCertified );
+   return false;
+});
+
+$( '#boardEligible a' ).on( 'click', function( event ) {
+
+   var $target = $( event.currentTarget ),
+       val = $target.attr( 'data-value' ),
+       $inp = $target.find( 'input' ),
+       idx;
+
+   if ( ( idx = boardEligible.indexOf( val ) ) > -1 ) {
+      boardEligible.splice( idx, 1 );
+      setTimeout( function() { $inp.prop( 'checked', false ) }, 0);
+   } else {
+      boardEligible.push( val );
+      setTimeout( function() { $inp.prop( 'checked', true ) }, 0);
+   }
+
+   $( event.target ).blur();
+
+   console.log( boardEligible );
+   return false;
+});
+
+
+
+
 function candidateSubmit(){
 
   //Determines canSpecialty
@@ -677,7 +726,10 @@ submitButton.addEventListener("click", function(){
   }
 
   //determines p2d3
-  if(canPrefSchedule != undefined){
+  if($("#flexibleSchedule").is(':checked')){
+    p2d3 = canPronouns[0] + " is flexible in terms of schedule. ";
+  }
+  else if(canPrefSchedule != undefined){
     p2d3 = canPronouns[0] + " would prefer to work a schedule of " + canPrefSchedule + ". ";
   }
   else{

@@ -677,7 +677,10 @@ submitButton.addEventListener("click", function(){
   }
 
   //determines p2d3
-  if(canPrefSchedule != undefined){
+  if($("#flexibleSchedule").is(':checked')){
+    p2d3 = canPronouns[0] + " is flexible in terms of schedule. ";
+  }
+  else if(canPrefSchedule != undefined){
     p2d3 = canPronouns[0] + " would prefer to work a schedule of " + canPrefSchedule + ". ";
   }
   else{
