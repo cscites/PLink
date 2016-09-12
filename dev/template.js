@@ -202,7 +202,7 @@ function candidateSubmit(){
     }
   }
 
-  //Determines canBoard
+  //Determines canBoard == N/A
   for(var i = 0; i < boardStatus.length; i++){
     if(boardStatus[i].checked){
       canBoardStatus = boardStatus[i].value;
@@ -615,10 +615,26 @@ submitButton.addEventListener("click", function(){
   }
   else{
     if(canProfession == "Physician"){
-      p1c = canFormalName + "is currently a " + canBoardStatus + " " + canProfession + " in " + canSpecialty + ". ";
+      if(boardCertified.length > 0){
+        var boardCertList = arrayToList(boardCertified);
+        p1c = canFormalName + "is currently Board Certified in: \n" + boardCertList + "\n";
+        if(boardEligible.length > 0){
+          var boardEligList = arrayToList(boardEligible);
+          p1c = p1c + "and Board Eligible in: \n" + boardEligList + "\n";
+        }
+      }
+      else if (boardEligible.length > 0) {
+        var boardEligList = arrayToList(boardEligible);
+        p1c = canFormalName + "is currently Board Eligible in: \n" + boardEligList + "\n";
+      }
     }
     else {
-      p1c = canFormalName + "is currently a " + canBoardStatus + " " + canProfession + ". ";
+      if(boardEligible.length == 0){
+        p1c = canFormalName + "is currently a Board Certified " + canProfession + ". ";
+      }
+      else{
+        p1c = canFormalName + "is currently a Board Eligible " + canProfession + ". ";
+      }
     }
   }
   if(canLicenses.length == 0){

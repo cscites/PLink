@@ -100,6 +100,55 @@ var canProStatusDescrip;
 var submitButton = document.getElementById("submit");
 var resetButton = document.getElementById("reset");
 var finalID = document.getElementById("finalID");
+
+var boardCertified = [];
+var boardEligible = [];
+
+$( '#boardCertified a' ).on( 'click', function( event ) {
+
+   var $target = $( event.currentTarget ),
+       val = $target.attr( 'data-value' ),
+       $inp = $target.find( 'input' ),
+       idx;
+
+   if ( ( idx = boardCertified.indexOf( val ) ) > -1 ) {
+      boardCertified.splice( idx, 1 );
+      setTimeout( function() { $inp.prop( 'checked', false ) }, 0);
+   } else {
+      boardCertified.push( val );
+      setTimeout( function() { $inp.prop( 'checked', true ) }, 0);
+   }
+
+   $( event.target ).blur();
+
+   console.log( boardCertified );
+   return false;
+});
+
+$( '#boardEligible a' ).on( 'click', function( event ) {
+
+   var $target = $( event.currentTarget ),
+       val = $target.attr( 'data-value' ),
+       $inp = $target.find( 'input' ),
+       idx;
+
+   if ( ( idx = boardEligible.indexOf( val ) ) > -1 ) {
+      boardEligible.splice( idx, 1 );
+      setTimeout( function() { $inp.prop( 'checked', false ) }, 0);
+   } else {
+      boardEligible.push( val );
+      setTimeout( function() { $inp.prop( 'checked', true ) }, 0);
+   }
+
+   $( event.target ).blur();
+
+   console.log( boardEligible );
+   return false;
+});
+
+
+
+
 function candidateSubmit(){
 
   //Determines canSpecialty
@@ -153,7 +202,7 @@ function candidateSubmit(){
     }
   }
 
-  //Determines canBoard
+  //Determines canBoard == N/A
   for(var i = 0; i < boardStatus.length; i++){
     if(boardStatus[i].checked){
       canBoardStatus = boardStatus[i].value;
@@ -566,10 +615,26 @@ submitButton.addEventListener("click", function(){
   }
   else{
     if(canProfession == "Physician"){
-      p1c = canFormalName + "is currently a " + canBoardStatus + " " + canProfession + " in " + canSpecialty + ". ";
+      if(boardCertified.length > 0){
+        var boardCertList = arrayToList(boardCertified);
+        p1c = canFormalName + "is currently Board Certified in: \n" + boardCertList + "\n";
+        if(boardEligible.length > 0){
+          var boardEligList = arrayToList(boardEligible);
+          p1c = p1c + "and Board Eligible in: \n" + boardEligList + "\n";
+        }
+      }
+      else if (boardEligible.length > 0) {
+        var boardEligList = arrayToList(boardEligible);
+        p1c = canFormalName + "is currently Board Eligible in: \n" + boardEligList + "\n";
+      }
     }
     else {
-      p1c = canFormalName + "is currently a " + canBoardStatus + " " + canProfession + ". ";
+      if(boardEligible.length == 0){
+        p1c = canFormalName + "is currently a Board Certified " + canProfession + ". ";
+      }
+      else{
+        p1c = canFormalName + "is currently a Board Eligible " + canProfession + ". ";
+      }
     }
   }
   if(canLicenses.length == 0){
