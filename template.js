@@ -561,15 +561,15 @@ submitButton.addEventListener("click", function(){
       p1b = canPronouns[0] + " is interested in " + canHoursString + " " + canSpecialty + " opportunities, that can accomodate " + canPronouns[3] + " " + canVisa + ", beginning as early as " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
     }
     else if (canVisa == "H1b Visa") {
-      p1b = canPronouns[0] + " is interested in " + canHoursString + " " + canSpecialty + " opportunities, that can sponsor " + canPronouns[3] + canVisa + ", beginning as early as " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
+      p1b = canPronouns[0] + " is interested in " + canHoursString + " " + canSpecialty + " opportunities, that can sponsor " + canPronouns[3] + " " + canVisa + ", beginning as early as " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
     }
     else if (canVisa == "O1 Visa") {
       p1b = canPronouns[0] + " is interested in " + canHoursString + " " + canSpecialty + " opportunities, beginning as early as " + canAvailabilityMonth + " " + canAvailabilityYear + ". "
-            canFormalName + " is seeking opportunities on an " + canVisa + ". ";
+            + canFormalName + " is seeking opportunities on an " + canVisa + ". ";
     }
     else{
       p1b = canPronouns[0] + " is interested in " + canHoursString + " " + canSpecialty + " opportunities, beginning as early as " + canAvailabilityMonth + " " + canAvailabilityYear + ". "
-            canFormalName + " is seeking opportunities on a " + canVisa + ". ";
+            + canFormalName + " is seeking opportunities on a " + canVisa + ". ";
     }
   }
   else if (canProStatus ==  "Graduate School") {
@@ -766,7 +766,7 @@ submitButton.addEventListener("click", function(){
   }
   else{
     canLanguagesString = inputToString(canLanguages);
-    canLanguagesString = canLanguagesString.replace(/or/, "and");
+    canLanguagesString = canLanguagesString.replace(/\bor\b/g, "and");
     p2f = "In addition to English, " + canFormalName + "speaks " + canLanguagesString + ". "
   }
 
@@ -800,7 +800,7 @@ submitButton.addEventListener("click", function(){
       + canGeoIntString + ". ";
       if(canReasonsForGeoInt != undefined){
         canReasonsForGeoIntString = inputToString(canReasonsForGeoInt);
-        canReasonsForGeoIntString = canReasonsForGeoIntString.replace(/or/, "and");
+        canReasonsForGeoIntString = canReasonsForGeoIntString.replace(/\bor\b/g, "and");
         p3c = canFormalName + "is interested in these areas because " + canReasonsForGeoIntString +". ";
       }
       else{
@@ -811,7 +811,7 @@ submitButton.addEventListener("click", function(){
       p3b = "";
       if(canReasonsForGeoInt != undefined){
         canReasonsForGeoIntString = inputToString(canReasonsForGeoInt);
-        canReasonsForGeoIntString = canReasonsForGeoIntString.replace(/\bor\b/, "and");
+        canReasonsForGeoIntString = canReasonsForGeoIntString.replace(/\bor\b/g, "and");
         p3c = canFormalName + "is interested in these states because " + canReasonsForGeoIntString + ". ";
       }
       else{
@@ -854,7 +854,7 @@ submitButton.addEventListener("click", function(){
     }
     if(canChildrenActivities != undefined){
       var canChildrenActivitiesString = inputToString(canChildrenActivities);
-      canChildrenActivitiesString = canChildrenActivitiesString.replace(/\or\b/, "and");
+      canChildrenActivitiesString = canChildrenActivitiesString.replace(/\bor\b/g, "and");
       p3e = p3e + ", involved in " + canChildrenActivitiesString;
     }
     p3e = p3e + ", and will be looking for a safe, family friendly community"
@@ -906,8 +906,14 @@ submitButton.addEventListener("click", function(){
   else{
     p4b = canPronouns[0] + " is available for preliminary interviews via phone";
   }
-  var canPrefMethOfContactString = arrayToString(canPrefMethOfContact);
-  p4b = p4b + " and welcomes contact from potential employers via " + canPrefMethOfContactString + ". ";
+  if(canPrefMethOfContact.length > 0){
+    var canPrefMethOfContactString = arrayToString(canPrefMethOfContact);
+    p4b = p4b + " and welcomes contact from potential employers via " + canPrefMethOfContactString + ". ";
+  }
+  else{
+    p4b = p4b + ". ";
+  }
+
 
   //determines p4c
   var p4cPronoun;
