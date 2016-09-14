@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>IDTP</title>
+    <title>IDTP Beta 1.1.3</title>
     <link rel="stylesheet" href="template.css" media="screen" title="no title" charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -264,11 +264,11 @@
         </form>
       </div>
       <!--Professional Status-->
-      <div class="col-md-3 col-xs-12 pane" id="proStatus">
+      <div class="col-md-3 col-xs-12 pane">
         <div class="col-md-12">
           <h4>Professional Status:</h4>
         </div>
-        <form class="proStatus" action="">
+        <form class="proStatus" id="proStatus" action="">
           <div class="col-md-6 col-xs-12">
             <input type="radio" name="proStatus" value="Resident">Resident
           </div>
@@ -750,36 +750,50 @@
           <input type="text" id="availabilityYear" name="availability">
         </div>
       </div>
-      <!--Training Completion-->
-      <div class="col-md-3 col-xs-12 pane" id="trainingCompletion">
-        <div class="col-md-12">
-          <h4>If Res/Fell/Mil/Grad School:</h4>
+      <!--Training Completion/Practice Experience-->
+      <div class="col-md-3 col-xs-12 pane">
+        <div class="hidden" id="trainingCompletionData">
+          <div class="col-md-12">
+            <h4>Completion Date:</h4>
+          </div>
+          <div class="col-md-12">
+            Completion Month:
+          </div>
+          <div class="col-md-12">
+            <!--<input type="text" id="completionMonth" name="completion">-->
+            <select class="col-md-12" id="completionMonth" name="completion">
+              <option value="January">January</option>
+              <option value="February">February</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
+            </select>
+          </div>
+          <div class="col-md-12">
+            Completion Year:
+          </div>
+          <div class="col-md-12">
+            <input type="text" id="completionYear" name="completion">
+          </div>
         </div>
-        <div class="col-md-12">
-          Completion Month:
-        </div>
-        <div class="col-md-12">
-          <!--<input type="text" id="completionMonth" name="completion">-->
-          <select class="col-md-12" id="completionMonth" name="completion">
-            <option value="January">January</option>
-            <option value="February">February</option>
-            <option value="March">March</option>
-            <option value="April">April</option>
-            <option value="May">May</option>
-            <option value="June">June</option>
-            <option value="July">July</option>
-            <option value="August">August</option>
-            <option value="September">September</option>
-            <option value="October">October</option>
-            <option value="November">November</option>
-            <option value="December">December</option>
-          </select>
-        </div>
-        <div class="col-md-12">
-          Completion Year:
-        </div>
-        <div class="col-md-12">
-          <input type="text" id="completionYear" name="completion">
+        <div class="hidden" id="practiceExperience">
+          <div class="col-md-12">
+            <h4>Practice Experience:</h4>
+          </div>
+          <div class="col-md-12">
+            <input type="number" class="col-md-6" id="expLength" value="">
+            <select class="col-md-6" id="expUnits">
+              <option value="years">years</option>
+              <option value="months">months</option>
+            </select>
+          </div>
         </div>
       </div>
       <div class="col-md-3 col-xs-12 pane">
@@ -805,70 +819,198 @@
         <form class="licenses" action="index.html" method="post">
           <div class="col-xs-6">
             <div class="col-md-6 col-xs-12">
-              <input type="checkbox" name="stateLic" value="AL">AL<br>
-              <input type="checkbox" name="stateLic" value="AK">AK<br>
-              <input type="checkbox" name="stateLic" value="AZ">AZ<br>
-              <input type="checkbox" name="stateLic" value="AR">AR<br>
-              <input type="checkbox" name="stateLic" value="CA">CA<br>
-              <input type="checkbox" name="stateLic" value="CO">CO<br>
-              <input type="checkbox" name="stateLic" value="CT">CT<br>
-              <input type="checkbox" name="stateLic" value="DC">DC<br>
-              <input type="checkbox" name="stateLic" value="DE">DE<br>
-              <input type="checkbox" name="stateLic" value="FL">FL<br>
-              <input type="checkbox" name="stateLic" value="GA">GA<br>
-              <input type="checkbox" name="stateLic" value="HI">HI<br>
-              <input type="checkbox" name="stateLic" value="ID">ID<br>
+              <input type="checkbox" name="stateLic" value="Alabama">AL<br>
+              <input type="checkbox" name="stateLic" value="Alaska">AK<br>
+              <input type="checkbox" name="stateLic" value="Arizona">AZ<br>
+              <input type="checkbox" name="stateLic" value="Arkansas">AR<br>
+              <input type="checkbox" name="stateLic" value="California">CA<br>
+              <input type="checkbox" name="stateLic" value="Colorado">CO<br>
+              <input type="checkbox" name="stateLic" value="Connecticut">CT<br>
+              <input type="checkbox" name="stateLic" value="Washington, DC">DC<br>
+              <input type="checkbox" name="stateLic" value="Delaware">DE<br>
+              <input type="checkbox" name="stateLic" value="Florida">FL<br>
+              <input type="checkbox" name="stateLic" value="Georgia">GA<br>
+              <input type="checkbox" name="stateLic" value="Hawaii">HI<br>
+              <input type="checkbox" name="stateLic" value="Idaho">ID<br>
             </div>
             <div class="col-md-6 col-xs-12">
-              <input type="checkbox" name="stateLic" value="IL">IL<br>
-              <input type="checkbox" name="stateLic" value="IN">IN<br>
-              <input type="checkbox" name="stateLic" value="IA">IA<br>
-              <input type="checkbox" name="stateLic" value="KS">KS<br>
-              <input type="checkbox" name="stateLic" value="KY">KY<br>
-              <input type="checkbox" name="stateLic" value="LA">LA<br>
-              <input type="checkbox" name="stateLic" value="ME">ME<br>
-              <input type="checkbox" name="stateLic" value="MD">MD<br>
-              <input type="checkbox" name="stateLic" value="MA">MA<br>
-              <input type="checkbox" name="stateLic" value="MI">MI<br>
-              <input type="checkbox" name="stateLic" value="MN">MN<br>
-              <input type="checkbox" name="stateLic" value="MS">MS<br>
-              <input type="checkbox" name="stateLic" value="MO">MO<br>
+              <input type="checkbox" name="stateLic" value="Illinois">IL<br>
+              <input type="checkbox" name="stateLic" value="Indiana">IN<br>
+              <input type="checkbox" name="stateLic" value="Iowa">IA<br>
+              <input type="checkbox" name="stateLic" value="Kansas">KS<br>
+              <input type="checkbox" name="stateLic" value="Kentucky">KY<br>
+              <input type="checkbox" name="stateLic" value="Louisiana">LA<br>
+              <input type="checkbox" name="stateLic" value="Maine">ME<br>
+              <input type="checkbox" name="stateLic" value="Maryland">MD<br>
+              <input type="checkbox" name="stateLic" value="Massachusetts">MA<br>
+              <input type="checkbox" name="stateLic" value="Michigan">MI<br>
+              <input type="checkbox" name="stateLic" value="Minnesota">MN<br>
+              <input type="checkbox" name="stateLic" value="Mississippi">MS<br>
+              <input type="checkbox" name="stateLic" value="Missouri">MO<br>
             </div>
           </div>
           <div class="col-xs-6">
             <div class="col-md-6 col-xs-12">
-              <input type="checkbox" name="stateLic" value="MT">MT<br>
-              <input type="checkbox" name="stateLic" value="NE">NE<br>
-              <input type="checkbox" name="stateLic" value="NV">NV<br>
-              <input type="checkbox" name="stateLic" value="NH">NH<br>
-              <input type="checkbox" name="stateLic" value="NJ">NJ<br>
-              <input type="checkbox" name="stateLic" value="NM">NM<br>
-              <input type="checkbox" name="stateLic" value="NY">NY<br>
-              <input type="checkbox" name="stateLic" value="NC">NC<br>
-              <input type="checkbox" name="stateLic" value="ND">ND<br>
-              <input type="checkbox" name="stateLic" value="OH">OH<br>
-              <input type="checkbox" name="stateLic" value="OK">OK<br>
-              <input type="checkbox" name="stateLic" value="OR">OR<br>
-              <input type="checkbox" name="stateLic" value="PA">PA<br>
+              <input type="checkbox" name="stateLic" value="Montana">MT<br>
+              <input type="checkbox" name="stateLic" value="Nebraska">NE<br>
+              <input type="checkbox" name="stateLic" value="Nevada">NV<br>
+              <input type="checkbox" name="stateLic" value="New Hampshire">NH<br>
+              <input type="checkbox" name="stateLic" value="New Jersey">NJ<br>
+              <input type="checkbox" name="stateLic" value="New Mexico">NM<br>
+              <input type="checkbox" name="stateLic" value="New York">NY<br>
+              <input type="checkbox" name="stateLic" value="North Carolina">NC<br>
+              <input type="checkbox" name="stateLic" value="North Dakota">ND<br>
+              <input type="checkbox" name="stateLic" value="Ohio">OH<br>
+              <input type="checkbox" name="stateLic" value="Oklahoma">OK<br>
+              <input type="checkbox" name="stateLic" value="Oregon">OR<br>
+              <input type="checkbox" name="stateLic" value="Pennsylvania">PA<br>
             </div>
             <div class="col-md-6 col-xs-12">
-              <input type="checkbox" name="stateLic" value="PR">PR<br>
-              <input type="checkbox" name="stateLic" value="RI">RI<br>
-              <input type="checkbox" name="stateLic" value="SC">SC<br>
-              <input type="checkbox" name="stateLic" value="SD">SD<br>
-              <input type="checkbox" name="stateLic" value="TN">TN<br>
-              <input type="checkbox" name="stateLic" value="TX">TX<br>
-              <input type="checkbox" name="stateLic" value="UT">UT<br>
-              <input type="checkbox" name="stateLic" value="VT">VT<br>
-              <input type="checkbox" name="stateLic" value="VA">VA<br>
-              <input type="checkbox" name="stateLic" value="WA">WA<br>
-              <input type="checkbox" name="stateLic" value="WV">WV<br>
-              <input type="checkbox" name="stateLic" value="WI">WI<br>
-              <input type="checkbox" name="stateLic" value="WY">WY<br>
+              <input type="checkbox" name="stateLic" value="Puerto Rico">PR<br>
+              <input type="checkbox" name="stateLic" value="Rhode Island">RI<br>
+              <input type="checkbox" name="stateLic" value="South Carolina">SC<br>
+              <input type="checkbox" name="stateLic" value="South Dakota">SD<br>
+              <input type="checkbox" name="stateLic" value="Tennesee">TN<br>
+              <input type="checkbox" name="stateLic" value="Texas">TX<br>
+              <input type="checkbox" name="stateLic" value="Utah">UT<br>
+              <input type="checkbox" name="stateLic" value="Vermont">VT<br>
+              <input type="checkbox" name="stateLic" value="Virginia">VA<br>
+              <input type="checkbox" name="stateLic" value="Washington">WA<br>
+              <input type="checkbox" name="stateLic" value="West Virginia">WV<br>
+              <input type="checkbox" name="stateLic" value="Wisconsin">WI<br>
+              <input type="checkbox" name="stateLic" value="Wyoming">WY<br>
             </div>
           </div>
         </form>
       </div>
+
+      <div class="container col-md-6">
+        <div class="row">
+          <div class="col-md-4 col-md-offset-8">
+            <div class="button-group">
+              <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span>Training Licenses</span> <span class="caret"></span></button>
+                <ul class="dropdown-menu" id="trainingLicenses">
+                  <li><a href="#" class="small" data-value="Alabama" tabIndex="-1"><input type="checkbox"/>&nbsp;AL</a></li>
+                  <li><a href="#" class="small" data-value="Alaska" tabIndex="-1"><input type="checkbox"/>&nbsp;AK</a></li>
+                  <li><a href="#" class="small" data-value="Arizona" tabIndex="-1"><input type="checkbox"/>&nbsp;AZ</a></li>
+                  <li><a href="#" class="small" data-value="Arkansas" tabIndex="-1"><input type="checkbox"/>&nbsp;AR</a></li>
+                  <li><a href="#" class="small" data-value="California" tabIndex="-1"><input type="checkbox"/>&nbsp;CA</a></li>
+                  <li><a href="#" class="small" data-value="Colorado" tabIndex="-1"><input type="checkbox"/>&nbsp;CO</a></li>
+                  <li><a href="#" class="small" data-value="Connecticut" tabIndex="-1"><input type="checkbox"/>&nbsp;CT</a></li>
+                  <li><a href="#" class="small" data-value="Delaware" tabIndex="-1"><input type="checkbox"/>&nbsp;DE</a></li>
+                  <li><a href="#" class="small" data-value="Washington, DC" tabIndex="-1"><input type="checkbox"/>&nbsp;DC</a></li>
+                  <li><a href="#" class="small" data-value="Florida" tabIndex="-1"><input type="checkbox"/>&nbsp;FL</a></li>
+                  <li><a href="#" class="small" data-value="Georgia" tabIndex="-1"><input type="checkbox"/>&nbsp;GA</a></li>
+                  <li><a href="#" class="small" data-value="Hawaii" tabIndex="-1"><input type="checkbox"/>&nbsp;HI</a></li>
+                  <li><a href="#" class="small" data-value="Idaho" tabIndex="-1"><input type="checkbox"/>&nbsp;ID</a></li>
+                  <li><a href="#" class="small" data-value="Illinois" tabIndex="-1"><input type="checkbox"/>&nbsp;IL</a></li>
+                  <li><a href="#" class="small" data-value="Indiana" tabIndex="-1"><input type="checkbox"/>&nbsp;IN</a></li>
+                  <li><a href="#" class="small" data-value="Iowa" tabIndex="-1"><input type="checkbox"/>&nbsp;IA</a></li>
+                  <li><a href="#" class="small" data-value="Kansas" tabIndex="-1"><input type="checkbox"/>&nbsp;KS</a></li>
+                  <li><a href="#" class="small" data-value="Kentucky" tabIndex="-1"><input type="checkbox"/>&nbsp;KY</a></li>
+                  <li><a href="#" class="small" data-value="Louisiana" tabIndex="-1"><input type="checkbox"/>&nbsp;LA</a></li>
+                  <li><a href="#" class="small" data-value="Maine" tabIndex="-1"><input type="checkbox"/>&nbsp;ME</a></li>
+                  <li><a href="#" class="small" data-value="Maryland" tabIndex="-1"><input type="checkbox"/>&nbsp;MD</a></li>
+                  <li><a href="#" class="small" data-value="Massachusetts" tabIndex="-1"><input type="checkbox"/>&nbsp;MA</a></li>
+                  <li><a href="#" class="small" data-value="Michigan" tabIndex="-1"><input type="checkbox"/>&nbsp;MI</a></li>
+                  <li><a href="#" class="small" data-value="Minnesota" tabIndex="-1"><input type="checkbox"/>&nbsp;MN</a></li>
+                  <li><a href="#" class="small" data-value="Mississippi" tabIndex="-1"><input type="checkbox"/>&nbsp;MS</a></li>
+                  <li><a href="#" class="small" data-value="Missouri" tabIndex="-1"><input type="checkbox"/>&nbsp;MO</a></li>
+                  <li><a href="#" class="small" data-value="Montana" tabIndex="-1"><input type="checkbox"/>&nbsp;MT</a></li>
+                  <li><a href="#" class="small" data-value="Nebraska" tabIndex="-1"><input type="checkbox"/>&nbsp;NE</a></li>
+                  <li><a href="#" class="small" data-value="Nevada" tabIndex="-1"><input type="checkbox"/>&nbsp;NV</a></li>
+                  <li><a href="#" class="small" data-value="New Hampshire" tabIndex="-1"><input type="checkbox"/>&nbsp;NH</a></li>
+                  <li><a href="#" class="small" data-value="New Jersey" tabIndex="-1"><input type="checkbox"/>&nbsp;NJ</a></li>
+                  <li><a href="#" class="small" data-value="New Mexico" tabIndex="-1"><input type="checkbox"/>&nbsp;NM</a></li>
+                  <li><a href="#" class="small" data-value="New York" tabIndex="-1"><input type="checkbox"/>&nbsp;NY</a></li>
+                  <li><a href="#" class="small" data-value="North Carolina" tabIndex="-1"><input type="checkbox"/>&nbsp;NC</a></li>
+                  <li><a href="#" class="small" data-value="North Dakota" tabIndex="-1"><input type="checkbox"/>&nbsp;ND</a></li>
+                  <li><a href="#" class="small" data-value="Ohio" tabIndex="-1"><input type="checkbox"/>&nbsp;OH</a></li>
+                  <li><a href="#" class="small" data-value="Oklahoma" tabIndex="-1"><input type="checkbox"/>&nbsp;OK</a></li>
+                  <li><a href="#" class="small" data-value="Oregon" tabIndex="-1"><input type="checkbox"/>&nbsp;OR</a></li>
+                  <li><a href="#" class="small" data-value="Pennsylvania" tabIndex="-1"><input type="checkbox"/>&nbsp;PA</a></li>
+                  <li><a href="#" class="small" data-value="Puerto Rico" tabIndex="-1"><input type="checkbox"/>&nbsp;PR</a></li>
+                  <li><a href="#" class="small" data-value="Rhode Island" tabIndex="-1"><input type="checkbox"/>&nbsp;RI</a></li>
+                  <li><a href="#" class="small" data-value="South Carolina" tabIndex="-1"><input type="checkbox"/>&nbsp;SC</a></li>
+                  <li><a href="#" class="small" data-value="South Dakota" tabIndex="-1"><input type="checkbox"/>&nbsp;SD</a></li>
+                  <li><a href="#" class="small" data-value="Tennessee" tabIndex="-1"><input type="checkbox"/>&nbsp;TN</a></li>
+                  <li><a href="#" class="small" data-value="Texas" tabIndex="-1"><input type="checkbox"/>&nbsp;TX</a></li>
+                  <li><a href="#" class="small" data-value="Utah" tabIndex="-1"><input type="checkbox"/>&nbsp;UT</a></li>
+                  <li><a href="#" class="small" data-value="Vermont" tabIndex="-1"><input type="checkbox"/>&nbsp;VT</a></li>
+                  <li><a href="#" class="small" data-value="Virginia" tabIndex="-1"><input type="checkbox"/>&nbsp;VA</a></li>
+                  <li><a href="#" class="small" data-value="Washington" tabIndex="-1"><input type="checkbox"/>&nbsp;WA</a></li>
+                  <li><a href="#" class="small" data-value="West Virginia" tabIndex="-1"><input type="checkbox"/>&nbsp;WV</a></li>
+                  <li><a href="#" class="small" data-value="Wisconsin" tabIndex="-1"><input type="checkbox"/>&nbsp;WI</a></li>
+                  <li><a href="#" class="small" data-value="Wyoming" tabIndex="-1"><input type="checkbox"/>&nbsp;WY</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container col-md-6">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="button-group">
+                <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span>Inactive Licenses</span> <span class="caret"></span></button>
+                  <ul class="dropdown-menu" id="inactiveLicenses">
+                    <li><a href="#" class="small" data-value="Alabama" tabIndex="-1"><input type="checkbox"/>&nbsp;AL</a></li>
+                    <li><a href="#" class="small" data-value="Alaska" tabIndex="-1"><input type="checkbox"/>&nbsp;AK</a></li>
+                    <li><a href="#" class="small" data-value="Arizona" tabIndex="-1"><input type="checkbox"/>&nbsp;AZ</a></li>
+                    <li><a href="#" class="small" data-value="Arkansas" tabIndex="-1"><input type="checkbox"/>&nbsp;AR</a></li>
+                    <li><a href="#" class="small" data-value="California" tabIndex="-1"><input type="checkbox"/>&nbsp;CA</a></li>
+                    <li><a href="#" class="small" data-value="Colorado" tabIndex="-1"><input type="checkbox"/>&nbsp;CO</a></li>
+                    <li><a href="#" class="small" data-value="Connecticut" tabIndex="-1"><input type="checkbox"/>&nbsp;CT</a></li>
+                    <li><a href="#" class="small" data-value="Delaware" tabIndex="-1"><input type="checkbox"/>&nbsp;DE</a></li>
+                    <li><a href="#" class="small" data-value="Washington, DC" tabIndex="-1"><input type="checkbox"/>&nbsp;DC</a></li>
+                    <li><a href="#" class="small" data-value="Florida" tabIndex="-1"><input type="checkbox"/>&nbsp;FL</a></li>
+                    <li><a href="#" class="small" data-value="Georgia" tabIndex="-1"><input type="checkbox"/>&nbsp;GA</a></li>
+                    <li><a href="#" class="small" data-value="Hawaii" tabIndex="-1"><input type="checkbox"/>&nbsp;HI</a></li>
+                    <li><a href="#" class="small" data-value="Idaho" tabIndex="-1"><input type="checkbox"/>&nbsp;ID</a></li>
+                    <li><a href="#" class="small" data-value="Illinois" tabIndex="-1"><input type="checkbox"/>&nbsp;IL</a></li>
+                    <li><a href="#" class="small" data-value="Indiana" tabIndex="-1"><input type="checkbox"/>&nbsp;IN</a></li>
+                    <li><a href="#" class="small" data-value="Iowa" tabIndex="-1"><input type="checkbox"/>&nbsp;IA</a></li>
+                    <li><a href="#" class="small" data-value="Kansas" tabIndex="-1"><input type="checkbox"/>&nbsp;KS</a></li>
+                    <li><a href="#" class="small" data-value="Kentucky" tabIndex="-1"><input type="checkbox"/>&nbsp;KY</a></li>
+                    <li><a href="#" class="small" data-value="Louisiana" tabIndex="-1"><input type="checkbox"/>&nbsp;LA</a></li>
+                    <li><a href="#" class="small" data-value="Maine" tabIndex="-1"><input type="checkbox"/>&nbsp;ME</a></li>
+                    <li><a href="#" class="small" data-value="Maryland" tabIndex="-1"><input type="checkbox"/>&nbsp;MD</a></li>
+                    <li><a href="#" class="small" data-value="Massachusetts" tabIndex="-1"><input type="checkbox"/>&nbsp;MA</a></li>
+                    <li><a href="#" class="small" data-value="Michigan" tabIndex="-1"><input type="checkbox"/>&nbsp;MI</a></li>
+                    <li><a href="#" class="small" data-value="Minnesota" tabIndex="-1"><input type="checkbox"/>&nbsp;MN</a></li>
+                    <li><a href="#" class="small" data-value="Mississippi" tabIndex="-1"><input type="checkbox"/>&nbsp;MS</a></li>
+                    <li><a href="#" class="small" data-value="Missouri" tabIndex="-1"><input type="checkbox"/>&nbsp;MO</a></li>
+                    <li><a href="#" class="small" data-value="Montana" tabIndex="-1"><input type="checkbox"/>&nbsp;MT</a></li>
+                    <li><a href="#" class="small" data-value="Nebraska" tabIndex="-1"><input type="checkbox"/>&nbsp;NE</a></li>
+                    <li><a href="#" class="small" data-value="Nevada" tabIndex="-1"><input type="checkbox"/>&nbsp;NV</a></li>
+                    <li><a href="#" class="small" data-value="New Hampshire" tabIndex="-1"><input type="checkbox"/>&nbsp;NH</a></li>
+                    <li><a href="#" class="small" data-value="New Jersey" tabIndex="-1"><input type="checkbox"/>&nbsp;NJ</a></li>
+                    <li><a href="#" class="small" data-value="New Mexico" tabIndex="-1"><input type="checkbox"/>&nbsp;NM</a></li>
+                    <li><a href="#" class="small" data-value="New York" tabIndex="-1"><input type="checkbox"/>&nbsp;NY</a></li>
+                    <li><a href="#" class="small" data-value="North Carolina" tabIndex="-1"><input type="checkbox"/>&nbsp;NC</a></li>
+                    <li><a href="#" class="small" data-value="North Dakota" tabIndex="-1"><input type="checkbox"/>&nbsp;ND</a></li>
+                    <li><a href="#" class="small" data-value="Ohio" tabIndex="-1"><input type="checkbox"/>&nbsp;OH</a></li>
+                    <li><a href="#" class="small" data-value="Oklahoma" tabIndex="-1"><input type="checkbox"/>&nbsp;OK</a></li>
+                    <li><a href="#" class="small" data-value="Oregon" tabIndex="-1"><input type="checkbox"/>&nbsp;OR</a></li>
+                    <li><a href="#" class="small" data-value="Pennsylvania" tabIndex="-1"><input type="checkbox"/>&nbsp;PA</a></li>
+                    <li><a href="#" class="small" data-value="Puerto Rico" tabIndex="-1"><input type="checkbox"/>&nbsp;PR</a></li>
+                    <li><a href="#" class="small" data-value="Rhode Island" tabIndex="-1"><input type="checkbox"/>&nbsp;RI</a></li>
+                    <li><a href="#" class="small" data-value="South Carolina" tabIndex="-1"><input type="checkbox"/>&nbsp;SC</a></li>
+                    <li><a href="#" class="small" data-value="South Dakota" tabIndex="-1"><input type="checkbox"/>&nbsp;SD</a></li>
+                    <li><a href="#" class="small" data-value="Tennessee" tabIndex="-1"><input type="checkbox"/>&nbsp;TN</a></li>
+                    <li><a href="#" class="small" data-value="Texas" tabIndex="-1"><input type="checkbox"/>&nbsp;TX</a></li>
+                    <li><a href="#" class="small" data-value="Utah" tabIndex="-1"><input type="checkbox"/>&nbsp;UT</a></li>
+                    <li><a href="#" class="small" data-value="Vermont" tabIndex="-1"><input type="checkbox"/>&nbsp;VT</a></li>
+                    <li><a href="#" class="small" data-value="Virginia" tabIndex="-1"><input type="checkbox"/>&nbsp;VA</a></li>
+                    <li><a href="#" class="small" data-value="Washington" tabIndex="-1"><input type="checkbox"/>&nbsp;WA</a></li>
+                    <li><a href="#" class="small" data-value="West Virginia" tabIndex="-1"><input type="checkbox"/>&nbsp;WV</a></li>
+                    <li><a href="#" class="small" data-value="Wisconsin" tabIndex="-1"><input type="checkbox"/>&nbsp;WI</a></li>
+                    <li><a href="#" class="small" data-value="Wyoming" tabIndex="-1"><input type="checkbox"/>&nbsp;WY</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
       <hr class="col-md-12 divider">
       <!--Preferred Practice Type-->
       <div class="col-md-3 col-xs-12 col-md-offset-1 pane" id="practiceType">
@@ -1051,66 +1193,66 @@
       <form class="prefStates" action="index.html" method="post">
         <div class="col-xs-6">
           <div class="col-md-6 col-xs-12">
-            <input type="checkbox" name="prefStates" value="AL">AL<br>
-            <input type="checkbox" name="prefStates" value="AK">AK<br>
-            <input type="checkbox" name="prefStates" value="AZ">AZ<br>
-            <input type="checkbox" name="prefStates" value="AR">AR<br>
-            <input type="checkbox" name="prefStates" value="CA">CA<br>
-            <input type="checkbox" name="prefStates" value="CO">CO<br>
-            <input type="checkbox" name="prefStates" value="CT">CT<br>
-            <input type="checkbox" name="prefStates" value="DC">DC<br>
-            <input type="checkbox" name="prefStates" value="DE">DE<br>
-            <input type="checkbox" name="prefStates" value="FL">FL<br>
-            <input type="checkbox" name="prefStates" value="GA">GA<br>
-            <input type="checkbox" name="prefStates" value="HI">HI<br>
-            <input type="checkbox" name="prefStates" value="ID">ID<br>
+            <input type="checkbox" name="prefStates" value="Alabama">AL<br>
+            <input type="checkbox" name="prefStates" value="Alaska">AK<br>
+            <input type="checkbox" name="prefStates" value="Arizona">AZ<br>
+            <input type="checkbox" name="prefStates" value="Arkansas">AR<br>
+            <input type="checkbox" name="prefStates" value="California">CA<br>
+            <input type="checkbox" name="prefStates" value="Colorado">CO<br>
+            <input type="checkbox" name="prefStates" value="Connecticut">CT<br>
+            <input type="checkbox" name="prefStates" value="Washington, DC">DC<br>
+            <input type="checkbox" name="prefStates" value="Delaware">DE<br>
+            <input type="checkbox" name="prefStates" value="Florida">FL<br>
+            <input type="checkbox" name="prefStates" value="Georgia">GA<br>
+            <input type="checkbox" name="prefStates" value="Hawaii">HI<br>
+            <input type="checkbox" name="prefStates" value="Idaho">ID<br>
           </div>
           <div class="col-md-6 col-xs-12">
-            <input type="checkbox" name="prefStates" value="IL">IL<br>
-            <input type="checkbox" name="prefStates" value="IN">IN<br>
-            <input type="checkbox" name="prefStates" value="IA">IA<br>
-            <input type="checkbox" name="prefStates" value="KS">KS<br>
-            <input type="checkbox" name="prefStates" value="KY">KY<br>
-            <input type="checkbox" name="prefStates" value="LA">LA<br>
-            <input type="checkbox" name="prefStates" value="ME">ME<br>
-            <input type="checkbox" name="prefStates" value="MD">MD<br>
-            <input type="checkbox" name="prefStates" value="MA">MA<br>
-            <input type="checkbox" name="prefStates" value="MI">MI<br>
-            <input type="checkbox" name="prefStates" value="MN">MN<br>
-            <input type="checkbox" name="prefStates" value="MS">MS<br>
-            <input type="checkbox" name="prefStates" value="MO">MO<br>
+            <input type="checkbox" name="prefStates" value="Illinois">IL<br>
+            <input type="checkbox" name="prefStates" value="Indiana">IN<br>
+            <input type="checkbox" name="prefStates" value="Iowa">IA<br>
+            <input type="checkbox" name="prefStates" value="Kansas">KS<br>
+            <input type="checkbox" name="prefStates" value="Kentucky">KY<br>
+            <input type="checkbox" name="prefStates" value="Louisiana">LA<br>
+            <input type="checkbox" name="prefStates" value="Maine">ME<br>
+            <input type="checkbox" name="prefStates" value="Maryland">MD<br>
+            <input type="checkbox" name="prefStates" value="Massachusetts">MA<br>
+            <input type="checkbox" name="prefStates" value="Michigan">MI<br>
+            <input type="checkbox" name="prefStates" value="Minnesota">MN<br>
+            <input type="checkbox" name="prefStates" value="Mississippi">MS<br>
+            <input type="checkbox" name="prefStates" value="Missouri">MO<br>
           </div>
         </div>
         <div class="col-xs-6">
           <div class="col-md-6 col-xs-12">
-            <input type="checkbox" name="prefStates" value="MT">MT<br>
-            <input type="checkbox" name="prefStates" value="NE">NE<br>
-            <input type="checkbox" name="prefStates" value="NV">NV<br>
-            <input type="checkbox" name="prefStates" value="NH">NH<br>
-            <input type="checkbox" name="prefStates" value="NJ">NJ<br>
-            <input type="checkbox" name="prefStates" value="NM">NM<br>
-            <input type="checkbox" name="prefStates" value="NY">NY<br>
-            <input type="checkbox" name="prefStates" value="NC">NC<br>
-            <input type="checkbox" name="prefStates" value="ND">ND<br>
-            <input type="checkbox" name="prefStates" value="OH">OH<br>
-            <input type="checkbox" name="prefStates" value="OK">OK<br>
-            <input type="checkbox" name="prefStates" value="OR">OR<br>
-            <input type="checkbox" name="prefStates" value="PA">PA<br>
+            <input type="checkbox" name="prefStates" value="Montana">MT<br>
+            <input type="checkbox" name="prefStates" value="Nebraska">NE<br>
+            <input type="checkbox" name="prefStates" value="Nevada">NV<br>
+            <input type="checkbox" name="prefStates" value="New Hampshire">NH<br>
+            <input type="checkbox" name="prefStates" value="New Jersey">NJ<br>
+            <input type="checkbox" name="prefStates" value="New Mexico">NM<br>
+            <input type="checkbox" name="prefStates" value="New York">NY<br>
+            <input type="checkbox" name="prefStates" value="North Carolina">NC<br>
+            <input type="checkbox" name="prefStates" value="North Dakota">ND<br>
+            <input type="checkbox" name="prefStates" value="Ohio">OH<br>
+            <input type="checkbox" name="prefStates" value="Oklahoma">OK<br>
+            <input type="checkbox" name="prefStates" value="Oregon">OR<br>
+            <input type="checkbox" name="prefStates" value="Pennsylvania">PA<br>
           </div>
           <div class="col-md-6 col-xs-12">
-            <input type="checkbox" name="prefStates" value="PR">PR<br>
-            <input type="checkbox" name="prefStates" value="RI">RI<br>
-            <input type="checkbox" name="prefStates" value="SC">SC<br>
-            <input type="checkbox" name="prefStates" value="SD">SD<br>
-            <input type="checkbox" name="prefStates" value="TN">TN<br>
-            <input type="checkbox" name="prefStates" value="TX">TX<br>
-            <input type="checkbox" name="prefStates" value="UT">UT<br>
-            <input type="checkbox" name="prefStates" value="VT">VT<br>
-            <input type="checkbox" name="prefStates" value="VA">VA<br>
-            <input type="checkbox" name="prefStates" value="WA">WA<br>
-            <input type="checkbox" name="prefStates" value="WV">WV<br>
-            <input type="checkbox" name="prefStates" value="WI">WI<br>
-            <input type="checkbox" name="prefStates" value="WY">WY<br>
+            <input type="checkbox" name="prefStates" value="Puerto Rico">PR<br>
+            <input type="checkbox" name="prefStates" value="Rhode Island">RI<br>
+            <input type="checkbox" name="prefStates" value="South Carolina">SC<br>
+            <input type="checkbox" name="prefStates" value="South Dakota">SD<br>
+            <input type="checkbox" name="prefStates" value="Tennessee">TN<br>
+            <input type="checkbox" name="prefStates" value="Texas">TX<br>
+            <input type="checkbox" name="prefStates" value="Utah">UT<br>
+            <input type="checkbox" name="prefStates" value="Vermont">VT<br>
+            <input type="checkbox" name="prefStates" value="Virginia">VA<br>
+            <input type="checkbox" name="prefStates" value="Washington">WA<br>
+            <input type="checkbox" name="prefStates" value="West Virginia">WV<br>
+            <input type="checkbox" name="prefStates" value="Wisconson">WI<br>
+            <input type="checkbox" name="prefStates" value="Wyoming">WY<br>
             <input type="checkbox" name="prefStates" value="Open-US">Open-US<br>
           </div>
         </div>

@@ -20,6 +20,9 @@ var availabilityYear = document.getElementById("availabilityYear");
 var canAvailabilityYear;
 var trainingCompletionMonth = document.getElementById("completionMonth");
 var canTrainingCompletionMonth;
+var canExp;
+var canExpUnit;
+var canExpLength;
 var trainingCompletionYear = document.getElementById("completionYear");
 var canTrainingCompletionYear;
 var visa = document.getElementsByName("visa");
@@ -103,6 +106,8 @@ var finalID = document.getElementById("finalID");
 
 var boardCertified = [];
 var boardEligible = [];
+var trainingLicenses = [];
+var inactiveLicenses = [];
 
 $( '#boardCertified a' ).on( 'click', function( event ) {
 
@@ -121,7 +126,6 @@ $( '#boardCertified a' ).on( 'click', function( event ) {
 
    $( event.target ).blur();
 
-   console.log( boardCertified );
    return false;
 });
 
@@ -142,11 +146,60 @@ $( '#boardEligible a' ).on( 'click', function( event ) {
 
    $( event.target ).blur();
 
-   console.log( boardEligible );
    return false;
 });
 
+$( '#trainingLicenses a' ).on( 'click', function( event ) {
 
+   var $target = $( event.currentTarget ),
+       val = $target.attr( 'data-value' ),
+       $inp = $target.find( 'input' ),
+       idx;
+
+   if ( ( idx = trainingLicenses.indexOf( val ) ) > -1 ) {
+      trainingLicenses.splice( idx, 1 );
+      setTimeout( function() { $inp.prop( 'checked', false ) }, 0);
+   } else {
+      trainingLicenses.push( val );
+      setTimeout( function() { $inp.prop( 'checked', true ) }, 0);
+   }
+
+   $( event.target ).blur();
+
+   return false;
+});
+
+$( '#inactiveLicenses a' ).on( 'click', function( event ) {
+
+   var $target = $( event.currentTarget ),
+       val = $target.attr( 'data-value' ),
+       $inp = $target.find( 'input' ),
+       idx;
+
+   if ( ( idx = inactiveLicenses.indexOf( val ) ) > -1 ) {
+      inactiveLicenses.splice( idx, 1 );
+      setTimeout( function() { $inp.prop( 'checked', false ) }, 0);
+   } else {
+      inactiveLicenses.push( val );
+      setTimeout( function() { $inp.prop( 'checked', true ) }, 0);
+   }
+
+   $( event.target ).blur();
+
+   return false;
+});
+
+$("#proStatus").click(function () {
+  canProStatus = $("#proStatus input:checked").val();
+  if(canProStatus == "Resident" || canProStatus == "Fellow" || canProStatus == "Military" || canProStatus == "Graduate School"){
+    $("#trainingCompletionData").removeClass("hidden");
+    $("#practiceExperience").addClass("hidden");
+  }
+  else{
+    $("#practiceExperience").removeClass("hidden");
+    $("#trainingCompletionData").addClass("hidden");
+  }
+})
 
 
 function candidateSubmit(){
@@ -195,11 +248,13 @@ function candidateSubmit(){
     canSalute = "Ms. ";
   }
 
-  //Determines canProStatus
-  for(var i = 0; i < proStatus.length; i++){
-    if(proStatus[i].checked){
-      canProStatus = proStatus[i].value;
-    }
+
+  //Determines canExperience
+  canExpUnit = $("#expUnits").val();
+  canExpLength = $("#expLength").val();
+  canExp = canExpLength + " " + canExpUnit;
+  if (canExpLength < 2) {
+    canExp = canExp.replace(/s/,"");
   }
 
   //Determines canBoard == N/A
@@ -637,13 +692,49 @@ submitButton.addEventListener("click", function(){
       }
     }
   }
+
+  if (canProStatus == "Private Practice" || canProStatus == "Retired" || canProStatus == "Other") {
+    if(canExpLength.length > 0){
+      if(p1c.length == 0){
+        p1c = canFormalName + "has " + canExp + " of practice experience. ";
+      }
+      else{
+        p1c = p1c + "and has " + canExp + " of practice experience. "
+      }
+    }
+  }
+
+
   if(canLicenses.length == 0){
     p1d = ""
+    if (trainingLicenses.length > 0) {
+      var trainingLicensesList = arrayToList(trainingLicenses);
+      p1d = canPronouns[0] + " has training licenses in: \n" + trainingLicensesList + "\n";
+      if (inactiveLicenses.length > 0) {
+        var inactiveLicensesList = arrayToList(inactiveLicenses);
+        p1d = p1d + "and inactive licenses in: \n" + inactiveLicensesList + "\n";
+      }
+    }
+    if (inactiveLicenses.length > 0 && trainingLicenses.length == 0) {
+      var inactiveLicensesList = arrayToList(inactiveLicenses);
+      p1d = canPronouns[0] + " has inactive licenses in: \n" + inactiveLicensesList + "\n";
+    }
   }
   else{
     canLicensesList = arrayToList(canLicenses);
-    p1d = canPronouns[0] + " is currently licensed in: \n" + canLicensesList;
+    p1d = canPronouns[0] + " is currently licensed in: \n" + canLicensesList + "\n";
+    if (trainingLicenses.length > 0) {
+      var trainingLicensesList = arrayToList(trainingLicenses);
+      p1d = p1d + "and has training licenses in: \n" + trainingLicensesList + "\n";
+    }
+
+    if (inactiveLicenses.length > 0) {
+      var inactiveLicensesList = arrayToList(inactiveLicenses);
+      p1d = p1d + "and inactive licenses in: \n" + inactiveLicensesList + "\n";
+    }
   }
+
+
 
   //Determines p2b1 and p2b2 strings
   if(canPrefGroupType.length == 0){
