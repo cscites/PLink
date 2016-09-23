@@ -27,3 +27,10 @@
 .hidden{
   display: none;
 }
+
+#map{
+  margin: auto;
+}
+.center{
+  margin: auto, 0;
+}

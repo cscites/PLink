@@ -510,6 +510,27 @@ function inputToString(input) {
   result = arrayToString(array);
   return result;
 }
+var canPrefRegion;
+$(".prefRegion").on("click",function () {
+  var tempArray = [];
+  for(var i = 0; i < $(".prefRegion:checked").length; i++){
+    tempArray.push($(".prefRegion:checked")[i].value);
+  }
+  canPrefRegion = tempArray;
+  for(var i = 0; i < canPrefRegion.length; i++){
+    if(canPrefRegion[i] == "New England"){
+      for(var n = 0; n < prefStates.length; n++){
+        if(prefStates[n].value == "Maine" || prefStates[n].value == "Vermont"){
+          prefStates[n].checked = true;
+        }
+      }
+    }
+  }
+  console.log(canPrefRegion);
+  //canPrefRegion.push($("#prefRegion:checked").value);
+})
+
+
 
 resetButton.addEventListener("click", function(){
   location.reload();
