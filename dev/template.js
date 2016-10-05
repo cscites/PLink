@@ -634,7 +634,7 @@ submitButton.addEventListener("click", function(){
       p1b = canPronouns[0] + " is interested in " + canHoursString + " " + canSpecialty + " opportunities, beginning as early as " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
     }
     else if (canVisa == "J1 Visa") {
-      p1b = canPronouns[0] + " is interested in " + canHoursString + " " + canSpecialty + " opportunities, that can accomodate " + canPronouns[3] + " " + canVisa + ", beginning as early as " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
+      p1b = canPronouns[0] + " is interested in " + canHoursString + " " + canSpecialty + " opportunities, that can accommodate " + canPronouns[3] + " " + canVisa + ", beginning as early as " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
     }
     else if (canVisa == "H1b Visa") {
       p1b = canPronouns[0] + " is interested in " + canHoursString + " " + canSpecialty + " opportunities, that can sponsor " + canPronouns[3] + " " + canVisa + ", beginning as early as " + canAvailabilityMonth + " " + canAvailabilityYear + ". ";
