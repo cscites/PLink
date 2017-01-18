@@ -482,10 +482,10 @@ function arrayToString(array){
 function arrayToList(array){
   for(var i = 0; i < array.length; i++){
     if(i == 0){
-      result = " \u2022 " + array[i];
+      result = " - " + array[i];
     }
     else{
-      result = result + "\n \u2022 " + array[i];
+      result = result + "\n - " + array[i];
     }
   }
   return result;
@@ -794,7 +794,7 @@ submitButton.addEventListener("click", function(){
       p2c = canFormalName + "enjoys all aspects of " + canSpecialty + " and is interested in: \n" + canProIntsString + "\n";
     }
     else{
-      p2c = canFormalName + " is particularly interested in: \n \u2022 " + canSpecialty + "\n" + canProIntsString + "\n";
+      p2c = canFormalName + " is particularly interested in: \n - " + canSpecialty + "\n" + canProIntsString + "\n";
     }
   }
 
