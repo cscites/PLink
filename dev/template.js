@@ -869,6 +869,7 @@ submitButton.addEventListener("click", function(){
   }
   else{
     canBenefitsString = arrayToString(canBenefits);
+    canBenefitsString = canBenefitsString.replace(/\bor\b/g, "and");
     p2e = canFormalName + "is particularly interested in opportunities that provide " + canBenefitsString + ". ";
   }
 
